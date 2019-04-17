@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/index',function(){
+	return view('layout.index');
+});
+Route::get('header',function(){
+	return view('layout.header');
+});
