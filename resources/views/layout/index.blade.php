@@ -13,11 +13,16 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/plugins.css">
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet"  href="customstyle.css">
+		
+
+
 		<!-- Custom css -->
 		<link rel="stylesheet" href="css/custom.css">
 		<!-- Modernizer js -->
 		
 		<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+
 	</head>
 	<body>
 		<!--[if lte IE 9]>
@@ -32,34 +37,7 @@
 			@include('layout.header')
 			<!-- End Header Area -->
 			<!-- Start Slider Area -->
-			<div class="slider__area slider--one">
-				<div class="slider__activation--1">
-					<!-- Start Single Slide -->
-					<div class="slide fullscreen bg-image--1">
-						<div class="container">
-							<div class="row">
-								
-								<div class="col-lg-12 col-md-12 col-sm-12">
-									<div class="slider__content">
-										<div class="slider__inner">
-											<h2>“AAHAR”</h2>
-											<h1>food delivery & service</h1>
-											<div class="slider__input">
-												<input type="text" placeholder="Type Place, City.Division">
-												<input class="res__search" type="text" placeholder="Restaurant">
-												<div class="src__btn">
-													<a href="#">Tìm kiếm</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Slide -->
-				</div>
-			</div>
+@include('layout.slider')
 			<!-- End Slider Area -->
 			<!-- Start Service Area -->
 			<section class="fd__service__area bg-image--2 section-padding--xlg">

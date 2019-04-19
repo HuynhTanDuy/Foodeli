@@ -628,7 +628,8 @@ a#scrollUp {
   background-position: center center; }
 
 .bg-image--2 {
-  background-image: url(images/bg/2.jpg);
+  
+background-color:white;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -1312,7 +1313,7 @@ a#scrollUp {
 
 /* Section padding */
 .section-padding--xlg {
-  padding: 200px 0; }
+  padding: 0px 0; }
 
 .section-padding--lg {
   padding: 130px 0; }
@@ -1331,7 +1332,7 @@ a#scrollUp {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-padding--xlg {
-    padding: 120px 0; }
+    padding: 0px 0; }
 
   .section-padding--lg {
     padding: 100px 0; }
@@ -1349,7 +1350,7 @@ a#scrollUp {
     margin-top: 40px; } }
 @media only screen and (max-width: 767px) {
   .section-padding--xlg {
-    padding: 90px 0; }
+    padding: 0px 0; }
 
   .section-padding--lg {
     padding: 70px 0; }
@@ -1841,9 +1842,9 @@ a#scrollUp {
   color: #666666;
   font-size: 20px; }
 .header__right .shopping__cart {
-  margin-left: 13px;
-  padding-left: 13px;
-  padding-right: 12px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   position: relative; }
   .header__right .shopping__cart::before {
     background: #d50c0d;
@@ -1929,7 +1930,8 @@ nav.main__menu__nav {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
-  justify-content: center; }
+  justify-content: center; 
+}
   nav.main__menu__nav ul {
     padding-left: 0;
     margin-bottom: 0;
@@ -1953,7 +1955,7 @@ nav.main__menu__nav {
     -moz-justify-content: center;
     justify-content: center; }
     nav.main__menu__nav ul li {
-      padding: 0 20px;
+      padding: 0 10px;
       display: inline-block;
       display: -webkit-box;
       display: -webkit-flex;
@@ -1975,6 +1977,7 @@ nav.main__menu__nav {
         position: relative; }
         nav.main__menu__nav ul li.drop:hover ul.dropdown__menu {
           opacity: 1;
+
           visibility: visible;
           transform: translateY(0); }
         nav.main__menu__nav ul li.drop ul.dropdown__menu {
@@ -8749,7 +8752,8 @@ input[type="submit"] {
     left: -6px; }
 
   .mainmenu__wrap .container .row {
-    flex-wrap: nowrap !important; }
+    flex-wrap: nowrap !important;
+    }
 
   .copyright .copyright__inner .cpy__right--left p {
     font-size: 12px; }
