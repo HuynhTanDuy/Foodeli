@@ -2,20 +2,27 @@
    <!-- Indicators -->
    <div class="container">
    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
+    <?php $i=0; ?>
+                      @foreach($slide as $sl)
+      <li data-target="#myCarousel" data-slide-to="{{$i}}" 
+      @if($i==0)
+      class="active"
+      @endif
+      ></li>
+    <?php $i++; ?>
+    @endforeach
    </ol>
    <div class="carousel-inner">
-      <div class="carousel-item active">
-         <img class="d-block w-100" src="images/slider/1.jpg" alt="Leopard">
+    <?php $i=0; ?>
+                @foreach($slide as $sl)
+      <div @if($i==0)
+        class="carousel-item active"
+        @else class="carousel-item"
+        @endif >
+        <?php $i++; ?>
+         <img class="d-block w-100" src="{{$sl->image}}" alt="{{$sl->caption}}">
       </div>
-      <div class="carousel-item">
-         <img class="d-block w-100" src="images/slider/2.jpg" alt="Cat">
-      </div>
-      <div class="carousel-item">
-         <img class="d-block w-100" src="images/slider/3.jpg" alt="Lion">
-      </div>
+     @endforeach
    </div>
    <!-- Controls -->
    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
