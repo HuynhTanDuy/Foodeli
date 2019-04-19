@@ -122,7 +122,6 @@ a:hover {
   color: #ac0404;
   outline: 0; }
 
-
 a:hover {
   text-decoration: underline; }
 
@@ -622,13 +621,14 @@ a#scrollUp {
   background: #ededed; }
 
 .bg-image--1 {
-  background-image: url(1.jpg);
+  background-image: url(1.jpg
+ );
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
 
 .bg-image--2 {
-  background-image: url(images/bg/1.jpg);
+  background-image: url(images/bg/2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
