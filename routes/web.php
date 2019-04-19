@@ -14,9 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('index',function(){
-	return view('layout.index');
-});
-Route::get('footer',function(){
-	return view('layout.footer');
+Route::get('/home','PageController@Home');
+
+Route::get('header',function(){
+	return view('layout.header');
 });
