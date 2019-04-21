@@ -15,10 +15,12 @@ class PageController extends Controller
 	public function Home()
 	{
 		$category=Category::all();
-		$location=Location::all();
+	
+		$location=Location::where('Reserve',0)->get();
+		$location_reserve=Location::where('Reserve',1)->get();
 		$slide=Slider::all();
 	//	echo $category[0]->getLocation[0];
-		return view('layout.index',['category'=>$category,'location'=>$location,'slide'=>$slide]);
+		return view('layout.index',['category'=>$category,'location'=>$location,'slide'=>$slide,'location_reserve'=>$location_reserve]);
 	}
 
 
