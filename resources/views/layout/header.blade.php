@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-lg-2 col-sm-4 col-md-5 order-1 order-lg-1">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="home">
                                     <img style="margin-left:-50px" src="images/logo/foody.png" alt="logo images">
                                 </a>
                             </div>

@@ -6,19 +6,29 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Location;
 use App\Slider;
+use App\News;
 class PageController extends Controller
 {
 	function __construct()
 	{
-
+		$news= News::all();
+            view()->share('news',$news);
 	}
 	public function Home()
 	{
 		$category=Category::all();
 		$location=Location::all();
 		$slide=Slider::all();
+		
 	//	echo $category[0]->getLocation[0];
 		return view('layout.index',['category'=>$category,'location'=>$location,'slide'=>$slide]);
+	}
+	public function News($title,$id)
+	{
+              $news=News::find($id);
+              $latestNews= News::orderBy('id', 'DESC')->take(2)->get();
+              $relatedNews= News::where('highlight',1)->take(4)->get();
+              return view('pages.news-detail',['news'=>$news,'relatedNews'=>$relatedNews,'latestNews'=>$latestNews]);
 	}
 
 
