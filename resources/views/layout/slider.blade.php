@@ -20,7 +20,7 @@
         @else class="carousel-item"
         @endif >
         <?php $i++; ?>
-         <img class="d-block w-100" src="{{$sl->image}}" alt="{{$sl->caption}}">
+         <img class="d-block w-100" src="images/slider/{{$sl->image}}" alt="{{$sl->caption}}">
       </div>
      @endforeach
    </div>
