@@ -15,14 +15,11 @@
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet"  href="customstyle.css">
 		
-
-
 		<!-- Custom css -->
 		<link rel="stylesheet" href="css/custom.css">
 		<!-- Modernizer js -->
 		
 		<script src="js/vendor/modernizr-3.5.0.min.js"></script>
-
 	</head>
 	<body>
 		<!--[if lte IE 9]>
@@ -127,7 +124,7 @@
 										<a class="active"  id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab">All</a>
 										@foreach ($category as $cate)
 										<?php $tenkhongdau=changeTitle($cate->name); ?>
-											<a id="nav-{{$cate->name}}-tab" data-toggle="tab" href="#nav-{{$tenkhongdau}}" role="tab">{{$cate->name}}</a>
+										<a id="nav-{{$cate->name}}-tab" data-toggle="tab" href="#nav-{{$tenkhongdau}}" role="tab">{{$cate->name}}</a>
 										@endforeach
 										
 									</div>
@@ -165,12 +162,12 @@
 																	<ul class="fd__rating">
 																		<?php $i=0; ?>
 																		<?php for ($i=0; $i < $loca->points; $i++) { ?>
-																			 <li><i class="zmdi zmdi-star"></i></li>
-																		<?php  }  ?>	 														
-																	
+																		<li><i class="zmdi zmdi-star"></i></li>
+																		<?php  }  ?>
 																		
 																		
-																	
+																		
+																		
 																		<li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
 																	</ul>
 																</div>
@@ -221,8 +218,8 @@
 																	<ul class="fd__rating">
 																		<?php $i=0; ?>
 																		<?php for ($i=0; $i < $loca->points; $i++) { ?>
-																			 <li><i class="zmdi zmdi-star"></i></li>
-																		<?php  }  ?>	 	
+																		<li><i class="zmdi zmdi-star"></i></li>
+																		<?php  }  ?>
 																	</ul>
 																</div>
 															</div>
@@ -462,69 +459,38 @@
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
 							<div class="section__title service__align--left">
-								<p>the process of our service </p>
-								<h2 class="title__line">Latest from Blog</h2>
+								
+								<h2 class="title__line">Tin tức</h2>
 							</div>
 						</div>
 					</div>
 					<div class="row mt--40">
 						<!-- Start Single Blog -->
+						@foreach($news as $n)
 						<div class="col-md-6 col-lg-4 col-sm-12 foo">
+							
 							<div class="blog">
 								<div class="blog__thumb">
-									<a href="blog-details.html">
-										<img src="images/blog/md-blog/1.jpg" alt="blog images">
+									<a href="news/{{$n->titlenosign}}/{{$n->id}}">
+										<img style="height:300px;"src="images/news/{{$n->images}}" alt="blog images">
 									</a>
 								</div>
 								<div class="blog__details">
-									<h2><a href="blog-details.html">Maxican Food Fev</a></h2>
+									<h2><a href="news/{{$n->titlenosign}}/{{$n->id}}">{{$n->tittle}}</a></h2>
 									<span>1st Feb, 2o17</span>
-									<p>Lorem ipsum dolor sit amadipisicing elit, seddo eiusmoddolore magna aliqua. Ut enim ad miveniam, quis noion ullamco laboris nisi umt aliquip ex ea cequat.</p>
+									<p>{{$n->summary}}</p>
 									<div class="blog__btn">
-										<a class="food__btn btn--green theme--hover" href="blog-details.html">Read More</a>
+										<a class="food__btn btn--green theme--hover" href="news/{{$n->titlenosign}}/{{$n->id}}">Chi tiết</a>
 									</div>
 								</div>
 							</div>
 						</div>
+						@endforeach
 						<!-- Start Single Blog -->
 						<!-- Start Single Blog -->
-						<div class="col-md-6 col-lg-4 col-sm-12 foo">
-							<div class="blog">
-								<div class="blog__thumb">
-									<a href="blog-details.html">
-										<img src="images/blog/md-blog/2.jpg" alt="blog images">
-									</a>
-								</div>
-								<div class="blog__details">
-									<h2><a href="blog-details.html">Italian Pizza Fev</a></h2>
-									<span>1st jan, 2o17</span>
-									<p>Lorem ipsum dolor sit amadipisicing elit, seddo eiusmoddolore magna aliqua. Ut enim ad miveniam, quis noion ullamco laboris nisi umt aliquip ex ea cequat.</p>
-									<div class="blog__btn">
-										<a class="food__btn btn--green theme--hover" href="blog-details.html">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
+						
 						<!-- Start Single Blog -->
-						<!-- Start Single Blog -->
-						<div class="col-md-6 col-lg-4 col-sm-12 foo">
-							<div class="blog">
-								<div class="blog__thumb">
-									<a href="blog-details.html">
-										<img src="images/blog/md-blog/3.jpg" alt="blog images">
-									</a>
-								</div>
-								<div class="blog__details">
-									<h2><a href="blog-details.html">Asian Food Fev</a></h2>
-									<span>1st Dec, 2o17</span>
-									<p>Lorem ipsum dolor sit amadipisicing elit, seddo eiusmoddolore magna aliqua. Ut enim ad miveniam, quis noion ullamco laboris nisi umt aliquip ex ea cequat.</p>
-									<div class="blog__btn">
-										<a class="food__btn btn--green theme--hover" href="blog-details.html">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Start Single Blog -->
+						
 					</div>
 				</div>
 			</section>
@@ -558,8 +524,7 @@
 		</section>
 		<!-- End Subscribe Area -->
 		<!-- Start Footer Area -->
-	@include('layout.footer')
-
+		@include('layout.footer')
 		<!-- End Footer Area -->
 		<!-- Login Form -->
 		<div class="accountbox-wrapper">
