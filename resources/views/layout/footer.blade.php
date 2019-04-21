@@ -8,14 +8,14 @@
 								<h2 class="ftr__title">Liên hệ</h2>
 								<div class="footer__inner">
 									<div class="ftr__details">
-										<p>Lorem ipsum dolor sit amconsectetur adipisicing elit,</p>
+										
 										<div class="ftr__address__inner">
 											<div class="ftr__address">
 												<div class="ftr__address__icon">
 													<i class="zmdi zmdi-home"></i>
 												</div>
 												<div class="frt__address__details">
-													<p>Elizabeth Tower. 6th Floor Medtown, New York</p>
+													<p>KTX khu B, Đông Hòa, Dĩ An, Bình Dương</p>
 												</div>
 											</div>
 											<div class="ftr__address">
@@ -23,8 +23,8 @@
 													<i class="zmdi zmdi-phone"></i>
 												</div>
 												<div class="frt__address__details">
-													<p><a href="#">+088 01673-453290</a></p>
-													<p><a href="#">+088 01773-458290</a></p>
+													<p><a href="#">+084 123456789</a></p>
+													<p><a href="#">+088 987654321</a></p>
 												</div>
 											</div>
 											<div class="ftr__address">
@@ -32,7 +32,7 @@
 													<i class="zmdi zmdi-email"></i>
 												</div>
 												<div class="frt__address__details">
-													<p><a href="#">Aahardelivery@email.com</a></p>
+													<p><a href="#">Foodeli@email.com</a></p>
 												</div>
 											</div>
 										</div>
@@ -48,44 +48,15 @@
 						</div>
 						<!-- End Single Footer -->
 						<!-- Start Single Footer -->
-						<div class="col-md-6 col-lg-3 col-sm-12 sm--mt--40">
-							<div class="footer gallery">
-								<h2 class="ftr__title">Our Gallery</h2>
-								<div class="footer__inner">
-									<ul class="sm__gallery__list">
-										<li><a href="#"><img src="images/gallery/sm-img/1.jpg" alt="gallery images"></a></li>
-										<li><a href="#"><img src="images/gallery/sm-img/2.jpg" alt="gallery images"></a></li>
-										<li><a href="#"><img src="images/gallery/sm-img/3.jpg" alt="gallery images"></a></li>
-										<li><a href="#"><img src="images/gallery/sm-img/4.jpg" alt="gallery images"></a></li>
-										<li><a href="#"><img src="images/gallery/sm-img/5.jpg" alt="gallery images"></a></li>
-										<li><a href="#"><img src="images/gallery/sm-img/6.jpg" alt="gallery images"></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+					
+						<!-- End Single Footer -->
+						<!-- Start Single Footer -->
+						
 						<!-- End Single Footer -->
 						<!-- Start Single Footer -->
 						<div class="col-md-6 col-lg-3 col-sm-12 md--mt--40 sm--mt--40">
 							<div class="footer">
-								<h2 class="ftr__title">Opening Time</h2>
-								<div class="footer__inner">
-									<ul class="opening__time__list">
-										<li>Saturday<span>.......</span>9am to 11pm</li>
-										<li>Sunday<span>.......</span>9am to 11pm</li>
-										<li>Monday<span>.......</span>9am to 11pm</li>
-										<li>Tuesday<span>.......</span>9am to 11pm</li>
-										<li>Wednesday<span>.......</span>9am to 11pm</li>
-										<li>Thursday<span>.......</span>9am to 11pm</li>
-										<li>Friday<span>.......</span>9am to 11pm</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- End Single Footer -->
-						<!-- Start Single Footer -->
-						<div class="col-md-6 col-lg-3 col-sm-12 md--mt--40 sm--mt--40">
-							<div class="footer">
-								<h2 class="ftr__title">Latest Post</h2>
+								<h2 class="ftr__title">Tin tức</h2>
 								<div class="footer__inner">
 									<div class="lst__post__list">
 										<div class="single__sm__post">
@@ -126,6 +97,8 @@
 							</div>
 						</div>
 						<!-- End Single Footer -->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.0703597336537!2d106.77934601431778!3d10.882253160208256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d89aad780e49%3A0x54542761d4c22175!2sKTX+Khu+B%2C+%C4%90HQG!5e0!3m2!1sen!2s!4v1555682417801!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
 					</div>
 				</div>
 			</div>

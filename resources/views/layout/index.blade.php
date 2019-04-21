@@ -37,7 +37,7 @@
 			@include('layout.header')
 			<!-- End Header Area -->
 			<!-- Start Slider Area -->
-@include('layout.slider')
+			@include('layout.slider')
 			<!-- End Slider Area -->
 			<!-- Start Service Area -->
 			<section class="fd__service__area bg-image--2 section-padding--xlg">
