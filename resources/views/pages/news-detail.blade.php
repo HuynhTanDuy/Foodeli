@@ -1,8 +1,6 @@
-@extends('layout.index-detail')
+@extends('layout.index')
 @section('content')
-	
-       
-        <!-- Start Blog List View Area -->
+<!-- Start Blog List View Area -->
         <section class="blog__details__wrapper section-padding--lg blog-details-page bg--white">
             <div class="container">
                 <div class="row">

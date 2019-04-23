@@ -1,9 +1,9 @@
-@extends('layout.index-detail')
+@extends('layout.index')
 @section('content')
 @include('layout.slider')
-			<!-- End Slider Area -->
-			<!-- Start Service Area -->
-			<section class="fd__service__area bg-image--2 section-padding--xlg">
+
+<!-- Instruction Area -->
+<section class="fd__service__area bg-image--2 section-padding--xlg">
 				<div class="container">
 					<div class="service__wrapper bg--white">
 						<div class="row">
@@ -63,13 +63,12 @@
 						</div>
 					</div>
 				</div>
-			</section>
-			<!-- End Service Area -->
-			<!-- Start Food Category -->
+</section>
+<!-- End Instruction Area -->
 			
-			<!-- End Food Category -->
-			<!-- Start Special Menu -->
-			<section class="fd__special__menu__area bg-image--3 section-pt--lg">
+
+<!--  Ship Menu -->
+<section class="fd__special__menu__area bg-image--3 section-pt--lg">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
@@ -95,22 +94,30 @@
 									</div>
 									<div class="fd__tab__content tab-content" id="nav-tabContent">
 										<!-- Start Single tab -->
+
 										<div class="single__tab__panel tab-pane fade show active " id="nav-all" role="tabpanel">
-											<div class="tab__content__wrap">
+
+													
+											<div class="tab__content__wrap" >
+												
 												<!-- Start Single Tab Content -->
 												<div class="single__tab__content">
+													<div class="row">
+														<?php $j=0; ?>
 													@foreach ($location as $loca)
+													
+													<div class="col-md-5 @if ( $j==1 ) offset-md-2 @endif">
 													<!-- Start Single Food -->
 													<div class="food__menu">
 														<div class="food__menu__thumb">
 															<a href="menu-details.html">
-																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images">
+																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images"> 
 															</a>
 														</div>
 														<div class="food__menu__details">
 															<div class="fd__menu__title__prize">
 																<h4><a href="menu-details.html">{{$loca->name}}</a></h4>
-																<span class="menu__prize">$15</span>
+																<span class="menu__prize">$15 </span>
 															</div>
 															<div class="fd__menu__details">
 																<p>Địa chỉ: {{$loca->address}}</p>
@@ -131,10 +138,14 @@
 															</div>
 														</div>
 													</div>
+													</div>
+													 <?php $j++; ?> 
 													<!-- End Single Food -->
 													@endforeach
-													
-												</div>
+												
+												
+											</div>
+										</div>
 												<!-- End Single Tab Content -->
 												<!-- Start Single Tab Content -->
 												
@@ -142,8 +153,11 @@
 										</div>
 										<!-- End Single tab -->
 										<!-- Start Single tab -->
+										
 										@foreach ($category as $cate)
 										<?php $tenkhongdau=changeTitle($cate->name); ?>
+										
+										
 										<div class="single__tab__panel tab-pane fade" id="nav-{{$tenkhongdau}}" role="tabpanel">
 											<div class="tab__content__wrap">
 												<!-- Start Single Tab Content -->
@@ -183,20 +197,158 @@
 												
 											</div>
 										</div>
+									</div>
+								</div>
+							</div>
 										<!-- End Single tab -->
 										@endforeach
 										
 										
 									</div>
 								</div>
+							</div>						
+</section>
+<!-- End Ship Menu Area -->
+
+<!--  Reserve Menu -->
+<section class="fd__special__menu__area bg-image--3 section-pt--lg">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 col-lg-12">
+							<div class="section__title service__align--left">
+								<p>Đặt bàn </p>
+								<h2 class="title__line">Đặt chỗ với giá ưu đãi</h2>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-			<!-- End Special Menu -->
-			<!-- Start Download App Area -->
-			<section class="food__download__app__area section-padding--lg bg--white bg__shape--1">
+				<div class="special__food__menu mt--80">
+					<div class="food__menu__prl bg-image--4">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									
+									<div class="fd__tab__content tab-content" id="nav-tabContent">
+										<!-- Start Single tab -->
+
+										<div class="single__tab__panel tab-pane fade show active " id="nav-all" role="tabpanel">
+
+													
+											<div class="tab__content__wrap" >
+												
+												<!-- Start Single Tab Content -->
+												<div class="single__tab__content">
+													<div class="row">
+														<?php $j=0; ?>
+													@foreach ($location_reserve as $loca)
+													
+													<div class="col-md-5 @if ( $j==1 ) offset-md-1 @endif">
+													<!-- Start Single Food -->
+													<div class="food__menu">
+														<div class="food__menu__thumb">
+															<a href="menu-details.html">
+																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images"> 
+															</a>
+														</div>
+														<div class="food__menu__details">
+															<div class="fd__menu__title__prize">
+																<h4><a href="menu-details.html">{{$loca->name}}</a></h4>
+																<span class="menu__prize">$15 </span>
+															</div>
+															<div class="fd__menu__details">
+																<p>Địa chỉ: {{$loca->address}}</p>
+																<div class="delivery__time__rating">
+																	<p> Phí ship : {{$loca->shipCharge}}</p>
+																	<ul class="fd__rating">
+																		<?php $i=0; ?>
+																		<?php for ($i=0; $i < $loca->points; $i++) { ?>
+																			 <li><i class="zmdi zmdi-star"></i></li>
+																		<?php  }  ?>	 														
+																	
+																		
+																		
+																	
+																		<li class="rating__opasity"><i class="zmdi zmdi-star"></i></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+													</div>
+													 <?php $j++; ?> 
+													<!-- End Single Food -->
+													@endforeach
+												
+												
+											</div>
+										</div>
+												<!-- End Single Tab Content -->
+												<!-- Start Single Tab Content -->
+												
+											</div>
+										</div>
+										<!-- End Single tab -->
+										<!-- Start Single tab -->
+										
+										@foreach ($category as $cate)
+										<?php $tenkhongdau=changeTitle($cate->name); ?>
+										
+										
+										<div class="single__tab__panel tab-pane fade" id="nav-{{$tenkhongdau}}" role="tabpanel">
+											<div class="tab__content__wrap">
+												<!-- Start Single Tab Content -->
+												<div class="single__tab__content">
+													<!-- Start Single Food -->
+													@foreach ($cate->getLocation as $loca)
+													<div class="food__menu">
+														<div class="food__menu__thumb">
+															<a href="menu-details.html">
+																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images">
+															</a>
+														</div>
+														<div class="food__menu__details">
+															<div class="fd__menu__title__prize">
+																<h4><a href="menu-details.html">{{$loca->name}}</a></h4>
+																<span class="menu__prize">$22</span>
+															</div>
+															<div class="fd__menu__details">
+																<p>Địa chỉ : {{$loca->address}}</p>
+																<div class="delivery__time__rating">
+																	<p>Phí ship : {{$loca->shipCharge}}</p>
+																	<ul class="fd__rating">
+																		<?php $i=0; ?>
+																		<?php for ($i=0; $i < $loca->points; $i++) { ?>
+																			 <li><i class="zmdi zmdi-star"></i></li>
+																		<?php  }  ?>	 	
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!-- End Single Food -->
+													@endforeach
+													
+												</div>
+												<!-- End Single Tab Content -->
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+										<!-- End Single tab -->
+										@endforeach
+										
+										
+									</div>
+								</div>
+							</div>						
+</section>
+<!-- End Reserve Menu Area -->
+			
+
+<!-- Start Download App Area -->
+<section class="food__download__app__area section-padding--lg bg--white bg__shape--1">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
@@ -224,10 +376,11 @@
 						</div>
 					</div>
 				</div>
-			</section>
-			<!-- End Download App Area -->
-			<!-- Start Testimonail Area -->
-			<section class="fd__testimonial__area section-padding--lg bg-image--5">
+</section>
+<!-- End Download App Area -->
+
+<!-- Start Testimonail Area -->
+<section class="fd__testimonial__area section-padding--lg bg-image--5">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
@@ -261,9 +414,10 @@
 					</div>
 				</div>
 			</section>
-			<!-- End Testimonail Area -->
-			<!-- Start Blog Area -->
-			<section class="fb__blog__ara section-padding--lg bg--white">
+<!-- End Testimonail Area -->
+
+<!-- Start News Area -->
+<section class="fb__blog__ara section-padding--lg bg--white">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
@@ -302,10 +456,11 @@
 						
 					</div>
 				</div>
-			</section>
-			<!-- End Blog Area -->
-			<!-- Start Subscribe Area -->
-			<section class="fd__subscribe__area bg-image--6">
+</section>
+<!-- End News Area -->
+
+<!--  Subscribe Area -->
+<section class="fd__subscribe__area bg-image--6">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-md-12">
@@ -330,5 +485,6 @@
 					</div>
 				</div>
 			</div>
-		</section>
+</section>
+<!-- End Subscribe Area -->
 @endsection
