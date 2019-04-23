@@ -21,6 +21,7 @@
 								</button>
 							</div>
 							<!-- //Cartbox Single Item -->
+							@endforeach
 
 								
 						</div>
