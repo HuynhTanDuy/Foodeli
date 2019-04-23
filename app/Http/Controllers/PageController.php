@@ -23,7 +23,10 @@ class PageController extends Controller
 		$slide=Slider::all();
 		
 	//	echo $category[0]->getLocation[0];
-		return view('layout.index',['category'=>$category,'location'=>$location,'slide'=>$slide,'location_reserve'=>$location_reserve]);
+
+		return view('pages.home',['category'=>$category,'location'=>$location,'slide'=>$slide,'location_reserve'=>$location_reserve]);
+
+		
 	}
 	public function News($title,$id)
 	{
