@@ -3,6 +3,7 @@
 					<button class="cartbox-close"><i class="zmdi zmdi-close"></i></button>
 					<div class="cartbox__inner text-left">
 						<div class="cartbox__items">
+							@foreach ($cartbox as $c)
 							<!-- Cartbox Single Item -->
 							<div class="cartbox__item">
 								<div class="cartbox__item__thumb">
@@ -18,40 +19,11 @@
 								<button class="cartbox__item__remove">
 								<i class="fa fa-trash"></i>
 								</button>
-								</div><!-- //Cartbox Single Item -->
-								<!-- Cartbox Single Item -->
-								<div class="cartbox__item">
-									<div class="cartbox__item__thumb">
-										<a href="product-details.html">
-											<img src="images/blog/sm-img/2.jpg" alt="small thumbnail">
-										</a>
-									</div>
-									<div class="cartbox__item__content">
-										<h5><a href="product-details.html" class="product-name">Wheat Bread</a></h5>
-										<p>Qty: <span>01</span></p>
-										<span class="price">$25</span>
-									</div>
-									<button class="cartbox__item__remove">
-									<i class="fa fa-trash"></i>
-									</button>
-									</div><!-- //Cartbox Single Item -->
-									<!-- Cartbox Single Item -->
-									<div class="cartbox__item">
-										<div class="cartbox__item__thumb">
-											<a href="product-details.html">
-												<img src="images/blog/sm-img/3.jpg" alt="small thumbnail">
-											</a>
-										</div>
-										<div class="cartbox__item__content">
-											<h5><a href="product-details.html" class="product-name">Mixed Fruits Pie</a></h5>
-											<p>Qty: <span>01</span></p>
-											<span class="price">$30</span>
-										</div>
-										<button class="cartbox__item__remove">
-										<i class="fa fa-trash"></i>
-										</button>
-										</div><!-- //Cartbox Single Item -->
-									</div>
+							</div>
+							<!-- //Cartbox Single Item -->
+
+								
+						</div>
 									<div class="cartbox__total">
 										<ul>
 											<li><span class="cartbox__total__title">Subtotal</span><span class="price">$70</span></li>

@@ -20,3 +20,5 @@ Route::get('header',function(){
 	return view('layout.header');
 });
 Route::get('news/{TittleNoSign}/{id}','PageController@News');
+
+Route::get('location/{id}','PageController@Location');

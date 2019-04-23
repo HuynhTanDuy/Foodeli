@@ -110,13 +110,13 @@
 													<!-- Start Single Food -->
 													<div class="food__menu">
 														<div class="food__menu__thumb">
-															<a href="menu-details.html">
+															<a href="location/{{$loca->id}}">
 																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images"> 
 															</a>
 														</div>
 														<div class="food__menu__details">
 															<div class="fd__menu__title__prize">
-																<h4><a href="menu-details.html">{{$loca->name}}</a></h4>
+																<h4><a href="location/{{$loca->id}}">{{$loca->name}}</a></h4>
 																<span class="menu__prize">$15 </span>
 															</div>
 															<div class="fd__menu__details">

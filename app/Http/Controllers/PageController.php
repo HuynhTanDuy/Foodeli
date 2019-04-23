@@ -7,12 +7,16 @@ use App\Category;
 use App\Location;
 use App\Slider;
 use App\News;
+use App\Food;
+use App\Cartbox;
 class PageController extends Controller
 {
 	function __construct()
 	{
 		$news= News::all();
-            view()->share('news',$news);
+		$cartbox=Cartbox::all();
+		view()->share('news',$news);
+		view()->share('cartbox',$cartbox);
 	}
 	public function Home()
 	{
@@ -34,6 +38,13 @@ class PageController extends Controller
               $latestNews= News::orderBy('id', 'DESC')->take(2)->get();
               $relatedNews= News::where('highlight',1)->take(4)->get();
               return view('pages.news-detail',['news'=>$news,'relatedNews'=>$relatedNews,'latestNews'=>$latestNews]);
+	}
+
+	public function Location($id)
+	{
+		$location=Location::find($id);
+		$food=Food::where('idLocation',$id)->get();
+		return view('pages.location',['location'=>$location,'food'=>$food]);
 	}
 
 
