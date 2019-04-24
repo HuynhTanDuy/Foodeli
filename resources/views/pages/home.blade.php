@@ -347,73 +347,10 @@
 <!-- End Reserve Menu Area -->
 			
 
-<!-- Start Download App Area -->
-<section class="food__download__app__area section-padding--lg bg--white bg__shape--1">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 col-lg-12">
-							<div class="section__title service__align--left">
-								<p>the process of our service </p>
-								<h2 class="title__line">Download our app</h2>
-							</div>
-						</div>
-					</div>
-					<div class="row mt--80">
-						<div class="col-lg-12 poss--relative">
-							<div class="app__download__container">
-								<div class="app__download__inner inline__image__css--1" style="background-image: url(images/app/bg.png);">
-									<h2>Aahar now in your hand</h2>
-									<h6>Download! to get this app Faster way to order food</h6>
-								</div>
-								<ul class="dwn__app__list">
-									<li class="wow lightSpeedIn" data-wow-delay="0.2s"><a href="#"><img src="images/app/2.png" alt="app images"></a></li>
-									<li class="wow lightSpeedIn" data-wow-delay="0.3s"><a href="#"><img src="images/app/3.png" alt="app images"></a></li>
-								</ul>
-							</div>
-							<div class="app__phone wow fadeInLeft" data-wow-delay="0.2s">
-								<img src="images/app/1.png" alt="app images">
-							</div>
-						</div>
-					</div>
-				</div>
-</section>
-<!-- End Download App Area -->
+
 
 <!-- Start Testimonail Area -->
-<section class="fd__testimonial__area section-padding--lg bg-image--5">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
-							<div class="testimonial__activation--1 text-center bg--white owl-carousel owl-theme clearfix">
-								<!-- Start Single Testimonial -->
-								<div class="testimonial">
-									<div class="testimonial__thumb">
-										<img src="images/testimonial/clint/1.png" alt="testimonial images">
-									</div>
-									<div class="testimonial__details">
-										<h4>Mily Cyrus</h4>
-										<h6>Food Expert</h6>
-										<p>Lorem ipsum dolor sit amconsectetuadipisicing elit, kjjnin khk seeiusmod tempor incididunt ut labore et dolore maaliqua. Ut enim ad minim veniam,</p>
-									</div>
-								</div>
-								<!-- End Single Testimonial -->
-								<!-- Start Single Testimonial -->
-								<div class="testimonial">
-									<div class="testimonial__thumb">
-										<img src="images/testimonial/clint/1.png" alt="testimonial images">
-									</div>
-									<div class="testimonial__details">
-										<h4>Mily Cyrus</h4>
-										<h6>Food Expert</h6>
-										<p>Lorem ipsum dolor sit amconsectetuadipisicing elit, kjjnin khk seeiusmod tempor incididunt ut labore et dolore maaliqua. Ut enim ad minim veniam,</p>
-									</div>
-								</div>
-								<!-- End Single Testimonial -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+
 <!-- End Testimonail Area -->
 
 <!-- Start News Area -->
@@ -458,24 +395,46 @@
 				</div>
 </section>
 <!-- End News Area -->
-
+<!-- Start Download App Area -->
+<section class="food__download__app__area section-download bg--white bg__shape--1">
+				
+					<div class="row mt--80">
+						<div class="col-lg-12 poss--relative">
+							<div class="app__download__container">
+								<div class="app__download__inner inline__image__css--1" style="background-image: url(images/app/bg.png); ">
+									<h2>Foodeli in your area</h2>
+									<h6>Tải ứng dụng ngay để nhận những ưu đãi mới nhất</h6>
+								</div>
+								<ul class="dwn__app__list">
+									<li class="wow lightSpeedIn" data-wow-delay="0.2s"><a href="#"><img src="images/app/2.png" alt="app images"></a></li>
+									<li class="wow lightSpeedIn" data-wow-delay="0.3s"><a href="#"><img src="images/app/3.png" alt="app images"></a></li>
+								</ul>
+							</div>
+							<div class="app__phone wow fadeInLeft" data-wow-delay="0.2s">
+								<img src="images/app/1.png" alt="app images">
+							</div>
+						</div>
+					</div>
+				</div>
+</section>
+<!-- End Download App Area -->
 <!--  Subscribe Area -->
 <section class="fd__subscribe__area bg-image--6">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-md-12">
 							<div class="subscribe__inner">
-								<h2>Subscribe to our newsletter</h2>
+								<h2>Theo dõi những tin mới nhất từ Foodeli</h2>
 								<div id="mc_embed_signup">
 									<div id="enter__email__address">
 										<form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 											<div id="mc_embed_signup_scroll" class="htc__news__inner">
 												<div class="news__input">
-													<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter Your E-mail Address" required>
+													<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Nhập email của bạn" required>
 												</div>
 												<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 												<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-												<div class="clearfix subscribe__btn"><input type="submit" value="Send Now" name="subscribe" id="mc-embedded-subscribe" class="sign__up food__btn">
+												<div class="clearfix subscribe__btn"><input type="submit" value="Gửi ngay" name="subscribe" id="mc-embedded-subscribe" class="sign__up food__btn">
 											</div>
 										</div>
 									</form>
