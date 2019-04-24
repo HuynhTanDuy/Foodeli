@@ -50,7 +50,7 @@
                                             <h2><a href="menu-details.html">{{$f->name}}</a></h2>
                                             <p>{{$f->description}}</p>
                                             <div class="list__btn">
-                                                <a class="food__btn grey--btn theme--hover" href="menu-details.html">Order Now</a>
+                                                <a class="food__btn grey--btn theme--hover" href="order/{{$f->id}}">Order Now</a>
                                             </div>
                                         </div>
                                         <div class="food__rating">

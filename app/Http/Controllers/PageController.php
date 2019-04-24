@@ -47,5 +47,19 @@ class PageController extends Controller
 		return view('pages.location',['location'=>$location,'food'=>$food]);
 	}
 
+	public function Cartbox()
+	{
+		$cartbox=Cartbox::find(1);
+		echo $cartbox->getFood->name;
+	}
+
+	public function Order($id)
+	{
+		$order= new Cartbox;
+		$order->idFood=$id;
+		$order->save();
+		
+
+	}
 
 }

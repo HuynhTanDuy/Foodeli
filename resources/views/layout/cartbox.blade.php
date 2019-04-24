@@ -8,19 +8,20 @@
 							<div class="cartbox__item">
 								<div class="cartbox__item__thumb">
 									<a href="product-details.html">
-										<img src="images/blog/sm-img/1.jpg" alt="small thumbnail">
+										<img src={{$c->getFood->image}} alt="small thumbnail">
 									</a>
 								</div>
 								<div class="cartbox__item__content">
-									<h5><a href="product-details.html" class="product-name">Vanila Muffin</a></h5>
-									<p>Qty: <span>01</span></p>
-									<span class="price">$15</span>
+									<h5><a href="product-details.html" class="product-name">{{$c->getFood->name}}</a></h5>
+									<p><span>{{$c->getFood->getLocation->name}}</span></p>
+									<span class="price">{{$c->getFood->price}} VNĐ</span>
 								</div>
 								<button class="cartbox__item__remove">
 								<i class="fa fa-trash"></i>
 								</button>
 							</div>
 							<!-- //Cartbox Single Item -->
+
 							@endforeach
 
 								
