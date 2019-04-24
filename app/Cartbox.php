@@ -11,6 +11,6 @@ class Cartbox extends Model
     public $timestamps = false;
     public function getFood()
     {
-    	return $this->hasMany('App\Food','idCategory','id');
+    	return $this->hasOne('App\Food');
     }
 }
