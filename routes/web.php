@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home','PageController@Home');
+Route::get('login','PageController@getLogin');
+Route::post('login','PageController@postLogin');
+Route::get('signup','PageController@getSignUp');
+Route::post('signup','PageController@postSignUp');
+Route::get('register','PageController@getRegister');
+Route::post('register','PageController@postRegister');
+Route::get('logout','PageController@getLogout');
 
 Route::get('header',function(){
 	return view('layout.header');

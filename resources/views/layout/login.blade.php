@@ -2,6 +2,11 @@
 		<div class="accountbox-wrapper">
 			<div class="accountbox text-left">
 				<ul class="nav accountbox__filters" id="myTab" role="tablist">
+					 @if(count($errors)>0)
+                <div class="alert alert-danger">
+                    {{session('loi')}}
+                </div>
+                @endif
 					<li>
 						<a class="active" id="log-tab" data-toggle="tab" href="#log" role="tab" aria-controls="log" aria-selected="true">Đăng nhập</a>
 					</li>
@@ -11,12 +16,13 @@
 				</ul>
 				<div class="accountbox__inner tab-content" id="myTabContent">
 					<div class="accountbox__login tab-pane fade show active" id="log" role="tabpanel" aria-labelledby="log-tab">
-						<form action="#">
+						<form action="login" method="post">
+							<input type="hidden" name="_token" value="{{csrf_token()}}">
 							<div class="single-input">
-								<input class="cr-round--lg" type="text" placeholder="Email">
+								<input class="cr-round--lg" name="email" type="text" placeholder="Email">
 							</div>
 							<div class="single-input">
-								<input class="cr-round--lg" type="password" placeholder="Mật khẩu">
+								<input class="cr-round--lg" name="password" type="password" placeholder="Mật khẩu">
 							</div>
 							<div class="single-input">
 								<button type="submit" class="food__btn"><span>Đăng nhập</span></button>
@@ -34,18 +40,19 @@
 						</form>
 					</div>
 					<div class="accountbox__register tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-						<form action="#">
+						<form action="signup" method="post">
+							<input type="hidden" name="_token" value="{{csrf_token()}}">
 							<div class="single-input">
-								<input class="cr-round--lg" type="text" placeholder="Họ tên">
+								<input class="cr-round--lg" name="name" type="text" placeholder="Họ tên">
 							</div>
 							<div class="single-input">
-								<input class="cr-round--lg" type="email" placeholder="Địa chỉ email">
+								<input class="cr-round--lg" name="email" type="email" placeholder="Địa chỉ email">
 							</div>
 							<div class="single-input">
-								<input class="cr-round--lg" type="password" placeholder="Mật khẩu">
+								<input class="cr-round--lg" name="password" type="password" placeholder="Mật khẩu">
 							</div>
 							<div class="single-input">
-								<input class="cr-round--lg" type="password" placeholder="Xác nhận mật khẩu">
+								<input class="cr-round--lg" name="password2" type="password" placeholder="Xác nhận mật khẩu">
 							</div>
 							<div class="single-input">
 								<button type="submit" class="food__btn"><span>Đăng kí</span></button>

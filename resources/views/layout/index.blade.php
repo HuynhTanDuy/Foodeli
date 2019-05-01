@@ -15,7 +15,9 @@
 		<link rel="stylesheet" href="css/plugins.css">
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet"  href="customstyle.css">
-		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
 		<!-- Custom css -->
 		<link rel="stylesheet" href="css/custom.css">
 		<!-- Modernizer js -->
@@ -32,8 +34,8 @@
 			@yield('content')
 			
 			@include('layout.footer')
-
-			@include('layout.login')
+           
+            
 
 			@include('layout.cartbox')
 
