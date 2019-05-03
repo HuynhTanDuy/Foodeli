@@ -26,3 +26,7 @@ Route::get('location/{id}','PageController@Location');
 Route::get('cartbox','PageController@Cartbox');
 
 Route::get('order/{id}','PageController@Order');
+
+Route::get('deleteOrder/{id}','PageController@DeleteOrder');
+
+Route::get('checkout','PageController@Checkout');

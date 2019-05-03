@@ -58,8 +58,20 @@ class PageController extends Controller
 		$order= new Cartbox;
 		$order->idFood=$id;
 		$order->save();
-		
+		return redirect('home');
 
+	}
+
+	public function DeleteOrder($id)
+	{
+		$order=Cartbox::find($id);
+		$order->delete();
+		return redirect('home');
+	}
+
+	public function Checkout()
+	{
+		return view('pages.checkout');
 	}
 
 }
