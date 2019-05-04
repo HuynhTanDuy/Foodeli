@@ -6904,8 +6904,8 @@ div.slide__pizza img {
   margin-top: 66px; }
 
 .comment__form .ct__form__box.d-flex {
-  margin-left: -15px;
-  margin-right: -15px; }
+  margin-left: -35px;
+  margin-right: -5px; }
 .comment__form .ct__form__box input {
   border: 1px solid #eeeeee;
   border-radius: 5px;
@@ -8751,7 +8751,7 @@ input[type="submit"] {
     width: 80%; }
 
   .header__right.d-flex.justify-content-end {
-    left: -6px; }
+    left: -100px; }
 
   .mainmenu__wrap .container .row {
     flex-wrap: nowrap !important;
