@@ -35,7 +35,7 @@
                                     
                                         <li class="drop"><i class="fas fa-user"></i>
                                             <ul class="dropdown__menu">
-                                                <li><a href="menu-list.html">Thông tin cá nhân</a></li>
+                                                <li><a href="profile/{{Auth::id()}}">Thông tin cá nhân</a></li>
                                                 <li><a href="menu-details.html">Đăng kí mở cửa hàng</a></li>
                                                  <li><a href="logout">Đăng xuất</a></li>
                                             </ul>

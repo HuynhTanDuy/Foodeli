@@ -22,10 +22,11 @@ Route::post('signup','PageController@postSignUp');
 Route::get('register','PageController@getRegister');
 Route::post('register','PageController@postRegister');
 Route::get('logout','PageController@getLogout');
-
+Route::get('profile/{id}','PageController@getProfile');
 Route::get('header',function(){
 	return view('layout.header');
 });
+
 Route::get('news/{TittleNoSign}/{id}','PageController@News');
 
 Route::get('location/{id}','PageController@Location');
