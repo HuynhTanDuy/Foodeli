@@ -126,7 +126,36 @@ class PageController extends Controller
    public function getProfile($id)
    {
     $user=User::find($id);
-
-  return view('pages.profile',['user'=>$user]);
+    return view('pages.profile',['user'=>$user]);
     }
+   }
+	public function Cartbox()
+	{
+		$cartbox=Cartbox::find(1);
+		echo $cartbox->getFood->name;
+	}
+
+	public function Order($id)
+	{
+		$order= new Cartbox;
+		$order->idFood=$id;
+		$order->save();
+		return redirect('home');
+
+	}
+
+	public function DeleteOrder($id)
+	{
+		$order=Cartbox::find($id);
+		$order->delete();
+		return redirect('home');
+	}
+
+	public function Checkout()
+	{
+		return view('pages.checkout');
+	}
+
+
+  
 }
