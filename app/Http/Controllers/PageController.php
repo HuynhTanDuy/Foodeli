@@ -128,7 +128,7 @@ class PageController extends Controller
     $user=User::find($id);
     return view('pages.profile',['user'=>$user]);
     }
-   }
+  
 	public function Cartbox()
 	{
 		$cartbox=Cartbox::find(1);
