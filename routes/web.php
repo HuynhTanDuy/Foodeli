@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/home','PageController@Home');
 Route::get('login','PageController@getLogin');
 Route::post('login','PageController@postLogin');
+Route::post('loginToOrder','PageController@postLoginToOrder');
 Route::get('signup','PageController@getSignUp');
 Route::post('signup','PageController@postSignUp');
 Route::get('register','PageController@getRegister');

@@ -4,7 +4,7 @@
 				<ul class="nav accountbox__filters" id="myTab" role="tablist">
 					 @if(count($errors)>0)
                 <div class="alert alert-danger">
-                    {{session('loi')}}
+                    {{session('annouce')}}
                 </div>
                 @endif
 					<li>
@@ -16,8 +16,8 @@
 				</ul>
 				<div class="accountbox__inner tab-content" id="myTabContent">
 					<div class="accountbox__login tab-pane fade show active" id="log" role="tabpanel" aria-labelledby="log-tab">
-						<form action="login" method="post">
-							<input type="hidden" name="_token" value="{{csrf_token()}}">
+						<form action="login" method="POST">
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 							<div class="single-input">
 								<input class="cr-round--lg" name="email" type="text" placeholder="Email">
 							</div>

@@ -21,6 +21,7 @@ class PageController extends Controller
 		view()->share('cartbox',$cartbox);
     view()->share('user',$user);
 	}
+
 	public function Home()
 	{
 		$category=Category::all();
@@ -35,6 +36,7 @@ class PageController extends Controller
 
 		
 	}
+
 	public function News($title,$id)
 	{
               $news=News::find($id);
@@ -49,6 +51,8 @@ class PageController extends Controller
 		$food=Food::where('idLocation',$id)->get();
 		return view('pages.location',['location'=>$location,'food'=>$food]);
 	}
+
+
 	public function postLogin(Request $rq)
 	{
 
@@ -74,6 +78,33 @@ class PageController extends Controller
             }
            
 	}
+
+    public function postLoginToOrder(Request $rq)
+  {
+
+     $this->validate( $rq, 
+            [
+              'email'=>'required',
+              'password'=>'required',
+              
+            ],[
+              'email.required'=>'Vui lòng nhập email',
+
+               'password.required'=>'Vui lòng nhập mật khẩu ',
+             
+            
+            ]);
+     if (Auth::attempt(['email' => $rq->email, 'password' => $rq->password])) 
+            {
+              return redirect('checkout');
+
+            }
+            else {
+              return redirect ('checkout');
+            }
+           
+  }
+
   public function getLogin()
 
   {
