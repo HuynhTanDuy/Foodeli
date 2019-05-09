@@ -23,8 +23,8 @@
                                         <li><a href="contact.html">Liên hệ</a></li>
                                         @if(Auth::check()==false)
                                 
-                                <div  class="log__in">
-                                   <li class="drop"> <a class="accountbox-trigger" href="#">Đăng nhập</a></li>
+                                <div class="log__in">
+                                   <li class="drop"> <a class="accountbox-trigger" href="login">Đăng nhập</a></li>
                                 </div>
                                        
                                          <li style="margin-right:-50px"><a href="register">Đăng kí</a>
@@ -81,7 +81,7 @@
         <div class="accountbox-wrapper">
             <div class="accountbox text-left">
                 <ul class="nav accountbox__filters" id="myTab" role="tablist">
-                     @if(count($errors)>0)
+                      @if(session('loi'))
                 <div class="alert alert-danger">
                     {{session('loi')}}
                 </div>
@@ -123,3 +123,12 @@
         </div><!-- //Login Form -->
             <!-- End Mainmenu Area -->
         </header>
+        @section('scripts')
+        <script>
+             setTimeout(function() {
+   
+    $('.accountbox-wrapper').show();​​​​​​
+}, 100);
+ 
+        </script>
+        @endsection

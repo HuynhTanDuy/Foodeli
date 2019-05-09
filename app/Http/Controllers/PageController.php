@@ -70,14 +70,14 @@ class PageController extends Controller
 
             }
             else {
-            	return redirect ('login');
+            	return redirect ('login')->with('loi','Sai tài khoản hoặc mật khẩu');
             }
            
 	}
   public function getLogin()
 
   {
-  	return redirect('home');
+  	return view('pages.login');
   }
   
   public function getLogout()
