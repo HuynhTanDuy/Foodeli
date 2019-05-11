@@ -15,7 +15,7 @@
                             <div class="main__menu__wrap">
                                 <nav style="margin-left: -50px" class="main__menu__nav d-none d-lg-block">
                                     <ul  class="mainmenu">
-                                        <li class="drop"><a href="index.html">Trang chủ</a></li>
+                                        <li class="drop"><a href="home">Trang chủ</a></li>
                                          <li class="drop"><a href="index.html">Đồ ăn</a></li>
                                                  <li class="drop"><a href="index.html">Thức uống</a></li>
                                                 <li class="drop"><a href="index.html">Tin tức</a></li>   

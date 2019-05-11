@@ -123,10 +123,5 @@ class PageController extends Controller
     $user->save();
     return redirect('register')->with('thongbao','Đăng kí thành công');
    }
-   public function getProfile($id)
-   {
-    $user=User::find($id);
-
-  return view('pages.profile',['user'=>$user]);
-    }
+  
 }

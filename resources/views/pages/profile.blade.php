@@ -26,7 +26,7 @@
 							<a style="color:white" class="accordion-head" >Thông tin cá nhân</a>
 							
 							<div class="accordion-body billing-method fix">
-								<form action="profile" class="billing-form checkout-form" method="POST">
+								<form action="profile/{{Auth::id()}}" class="billing-form checkout-form" method="POST" enctype="multipart/form-data">
 									<input type="hidden" name="_token" value="{{csrf_token()}}">
 									<div class="row">
 										<div class="col-12 mb--20">
@@ -38,14 +38,14 @@
 										</div>
 										<div class="col-12 mb--20 change-pass">
 											
-												<input  type="checkbox" class="form-check-input" value="">
+												<input  id="changePass" name="changePass" type="checkbox" class="form-check-input" >
 												<label >Đổi mật khẩu</label>
 											</div>
 											<div class="col-12 mb--20 ">
-												<input type="password" placeholder="Mật khẩu"  name="password" value="{{$user->password}}">
+												<input disabled="" type="password" class="password" placeholder="Mật khẩu"  name="password" value="{{$user->password}}">
 											</div>
 											<div class="col-12 mb--20">
-												<input type="password" name="password2" value="{{$user->password}}" placeholder="Xác nhận mật khẩu">
+												<input disabled="" type="password" name="password2" class="password" value="{{$user->password}}" placeholder="Xác nhận mật khẩu">
 											</div>
 											<div class="col-12 mb--20">
 												<input value="{{$user->address}}"
@@ -84,4 +84,25 @@
 		</div>
 	</div>
 </section>
+@endsection
+@section('scripts')
+
+<script>
+    $(document).ready(function(){
+        $("#changePass").change(function(){
+        {
+            if($(this).is(":checked"))
+            {
+                $(".password").removeAttr('disabled');
+               
+            }
+            else {
+                $(".password").attr('disabled','');
+             
+            }
+
+        }
+    });
+    });
+    </script>
 @endsection
