@@ -19,6 +19,7 @@ class PageController extends Controller
 		$cartbox=Cartbox::all();
     $user= User::all();
     $comment = Comment::all();
+
 		view()->share('news',$news);
 		view()->share('cartbox',$cartbox);
     view()->share('user',$user);
@@ -125,6 +126,16 @@ class PageController extends Controller
     $user->password= bcrypt($rq->password);
     $user->save();
     return redirect('register')->with('thongbao','Đăng kí thành công');
+   }
+   public function postComment($id, Request $rq)
+   {
+
+    $comment = new Comment;
+    $comment->content=$rq->comment_area;
+    $comment->idLocation=$id;
+    $comment->idUser=Auth::id();
+    $comment->save();
+    return redirect('location/'.$id);
    }
   
 }

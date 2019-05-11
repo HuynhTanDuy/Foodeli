@@ -128,11 +128,14 @@
                                     <h2 class="blog__title">Để lại bình luận</h2>
                                     <div class="comment__form">
                                         <div class="ct__form__box">
-                                            <textarea style="width:800px" name="comment" placeholder="Nhập bình luận"></textarea>
+                                            <form action="location/{{$location->id}}" method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                            <textarea name="comment_area" style="width:800px" name="comment" placeholder="Nhập bình luận"></textarea>
                                         </div>
-                                        <div class="comment__btn">
-                                            <a style="margin-bottom: 10px;" class="food__btn" href="#">Gửi</a>
-                                        </div>
+                                        <div class="col-12 mb--20">
+                                                <button style="margin:10px 0px 0px 0px"class="food__btn">Gửi</button>
+                                            </div>
+                                    </form>
                                     </div>
                                 </div>
                             </div>
