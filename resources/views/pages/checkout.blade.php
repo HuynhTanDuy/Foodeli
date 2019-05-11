@@ -12,6 +12,13 @@
                                   <a class="breadcrumb-item" href="index.html">Home</a>
                                   <span class="brd-separetor"><i class="zmdi zmdi-long-arrow-right"></i></span>
                                   <span class="breadcrumb-item active">Checkout</span>
+                                   @if(count($errors)>0)
+                        <div class="alert alert-danger"> 
+                             @foreach ($errors->all() as $err) 
+                                {{$err}} <br>
+                            @endforeach
+                        </div>
+                        @endif
                                 </nav>
                             </div>
                         </div>
@@ -65,46 +72,45 @@
                                         </div>
                                     </div>
                                     
+                                    <form action="placeOrder" method="POST">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <!-- Shipping Method -->
                                     <div class="single-accordion">
                                         <a class="accordion-head collapsed" data-toggle="collapse" data-parent="#checkout-accordion" href="#shipping-method">2. shipping informatioon</a>
+
                                         <div id="shipping-method" class="collapse">
+
                                             <div class="accordion-body shipping-method fix">
                                                
+                                                <fieldset>
+
                                                 <h5>Địa chỉ Ship</h5>
-                                                <p><span>Địa chỉ&nbsp;</span>{{Auth::user()->address}}</p>
-                                                
-                                                <button class="shipping-form-toggle">Ship tới địa chỉ khác ?</button>
-                                                
-                                                <form action="#" class="shipping-form checkout-form">
-                                                    <div class="row">
-                                                        
-                                                        <div class="col-12 mb--20">                              
-                                                            <input type="text" name="addressShip" placeholder="Địa chỉ">
-                                                        </div>
-                                                                             
-                                                    </div>
-                                                </form>
-                                                
-                                            </div>
-                                            <div class="accordion-body shipping-method fix">
                                                
-                                                <h5>Số điện thoại</h5>
-                                                <p><span>SĐT&nbsp;</span>{{Auth::user()->phone_number}}</p>
-                                                
-                                                <button class="shipping-form-toggle">Sử dụng số điện thoại khác ?</button>
-                                                
-                                                <form action="#" class="shipping-form checkout-form">
                                                     <div class="row">
                                                         
                                                         <div class="col-12 mb--20">                              
-                                                            <input type="text" name="phoneNumberShip" placeholder="Số điện thoại">
+                                                            <input type="text" name="addressShip" value="{{Auth::user()->address}}">
                                                         </div>
                                                                              
                                                     </div>
-                                                </form>
+                                                </fieldset>
+
+                                                <fieldset>
+
+                                                <h5>Số điện thoại</h5>
+                                               
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-12 mb--20">                              
+                                                            <input type="text" name="phoneNumberShip" value="{{Auth::user()->phone_number}}">
+                                                        </div>
+                                                                             
+                                                    </div>
+                                                </fieldset>
+                                               
                                                 
                                             </div>
+                                            
                                         </div>
 
                                     </div>
@@ -113,43 +119,48 @@
                                     <div class="single-accordion">
                                         <a class="accordion-head collapsed" data-toggle="collapse" data-parent="#checkout-accordion" href="#payment-method">3. Payment method</a>
                                         <div id="payment-method" class="collapse">
-                                            <div class="accordion-body payment-method fix">
+                                            <div  class="accordion-body payment-method fix" >
+                                              
+                                                 <ul class="payment-method-list" >
+                                                    <li class="active"><input type="radio" checked="true" name="paymentMethod" value="0">Thanh toán khi nhận hàng </li>
+                                                    <li  class="payment-form-toggle"><input  type="radio" name="paymentMethod"  value="1">Thẻ tín dụng </li>
+                                                </ul> 
+
                                                
-                                                <ul class="payment-method-list">
-                                                    <li class="active">Thanh toán khi nhận hàng</li>
-                                                    <li class="payment-form-toggle">Thẻ tín dụng</li>
-                                                </ul>
                                                 
-                                                <form action="#" class="payment-form">
+                                                 <!-- <form action="#" class="payment-form">  -->
+                                                    <div class="payment-form">
                                                     <div class="row">
                                                         <div class="input-box col-12 mb--20">
                                                             <label for="card-name">Họ tên chủ thẻ</label>
-                                                            <input type="text" id="card-name" />
+                                                            <input type="text" id="card-name" name="card_name" />
                                                         </div>
-                                                        <div class="input-box col-12 mb--20">
+                                                        <div class="input-box col-12 mb--20 "  >
                                                             <label>Loại thẻ</label>
-                                                            <select>
+                                                            <select name="card_type">
                                                                 <option>Please Select</option>
-                                                                <option>Đông Á </option>
-                                                                <option>BIDV</option>
-                                                                <option>ACB</option>
-                                                                <option>Vietcombank</option>
-                                                                <option>TCP</option>
-                                                                <option>Agribank</option>
+                                                                <option value="0">Đông Á </option>
+                                                                <option value="1">BIDV</option>
+                                                                <option value="2">ACB</option>
+                                                                <option value="3">Vietcombank</option>
+                                                                <option value="4">TCP</option>
+                                                                <option value="5">Agribank</option>
                                                             </select>
                                                         </div>
                                                         <div class="input-box col-12 mb--20">
                                                             <label for="card-number">Credit Card Number </label>
-                                                            <input type="text" id="card-number" />
+                                                            <input type="text" id="card-number" name="card_number" />
                                                         </div>
                                                        
-                                                    </div>
-                                                </form>
+                                                    </div></div>
+                                            <!--     </form> -->
                                             
                                             </div>
                                         </div>
+
                                     </div>
-                                    
+                                    <li><button type="submit" class="food__btn">place order</button></li>
+                                    </form>
                                 </div><!-- Checkout Accordion Start -->
                         </div>
                        @else
@@ -219,7 +230,7 @@
                                                 <li><p class="strong">Tổng giá tiền sản phẩm</p><p class="strong">{{$subtotal}} VNĐ</p></li>
                                                  <li><p class="strong">Phí Ship</p><p class="strong">{{$shippingCharge}} VNĐ</p></li>
                                                 <li><p class="strong">Tổng tiền</p><p class="strong">{{$subtotal+$shippingCharge}} VNĐ</p></li>
-                                                <li><button class="food__btn">place order</button></li>
+                                                
                                             </ul>
                                         </form>
                                     </div>

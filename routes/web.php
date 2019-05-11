@@ -39,3 +39,11 @@ Route::get('order/{id}','PageController@Order');
 Route::get('deleteOrder/{id}','PageController@DeleteOrder');
 
 Route::get('checkout','PageController@Checkout');
+
+Route::get('checkout_inform','PageController@Checkout_inform');
+
+Route::post('placeOrder','PageController@PlaceOrder');
+
+
+
+Route::get('test','PageController@Test');
