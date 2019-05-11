@@ -10,6 +10,7 @@ use App\News;
 use App\Food;
 use App\Cartbox;
 use App\User;
+use App\Comment;
 class PageController extends Controller
 {
 	function __construct()
@@ -17,9 +18,11 @@ class PageController extends Controller
 		$news= News::all();
 		$cartbox=Cartbox::all();
     $user= User::all();
+    $comment = Comment::all();
 		view()->share('news',$news);
 		view()->share('cartbox',$cartbox);
     view()->share('user',$user);
+    view()->share('comment',$comment);
 	}
 	public function Home()
 	{
@@ -60,7 +63,7 @@ class PageController extends Controller
           	],[
               'email.required'=>'Vui lòng nhập email',
 
-               'password.required'=>'Vui lòng nhập mật khẩu ',
+              'password.required'=>'Vui lòng nhập mật khẩu ',
              
             
           	]);

@@ -24,6 +24,7 @@ Route::post('register','PageController@postRegister');
 Route::get('logout','PageController@getLogout');
 Route::get('profile/{id}','ProfileController@getProfile');
 Route::post('profile/{id}','ProfileController@postProfile');
+
 Route::get('header',function(){
 	return view('layout.header');
 });
