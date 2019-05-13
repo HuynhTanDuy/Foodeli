@@ -170,9 +170,11 @@ class PageController extends Controller
 
 	public function Order($id)
 	{
-		$order= new Cartbox;
-		$order->idFood=$id;
-		$order->save();
+		$order= Cartbox::find(Auth::user()->id);
+		$order_detail=new Cartbox_detail;
+    $order_detail->idCartBox=$order->id;
+    $order_detail->idFood=$id;
+    $order_detail->save();
 		return redirect('home');
 
 	}
@@ -228,6 +230,15 @@ class PageController extends Controller
       $order->card_number=$request->card_number;
     }
     $order->save();
+
+    //Clear cartbox
+    $cartbox=Cartbox::where('idUser',Auth::user()->id)->get();
+    $cartboxDetail=Cartbox_detail::where('idCartBox',$cartbox[0]->id)->get();
+    foreach ($cartboxDetail as $c) {
+      $c->delete();
+     // $c->save();
+    }
+   
    return redirect('checkout_inform')->with('annoucement','Đặt hàng thành công');
 
 
@@ -240,8 +251,9 @@ class PageController extends Controller
   
   public function Test()
   {
-    $c=Cartbox::find(4);
-    echo $c->getDetail;
+
+
+    echo $cartboxDetail;
 
   }
   
