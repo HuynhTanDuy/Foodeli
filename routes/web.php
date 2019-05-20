@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/home','PageController@Home');
 Route::get('login','PageController@getLogin');
 Route::post('login','PageController@postLogin');
+Route::post('loginToOrder','PageController@postLoginToOrder');
 Route::get('signup','PageController@getSignUp');
 Route::post('signup','PageController@postSignUp');
 Route::get('register','PageController@getRegister');
@@ -38,3 +39,11 @@ Route::get('order/{id}','PageController@Order');
 Route::get('deleteOrder/{id}','PageController@DeleteOrder');
 
 Route::get('checkout','PageController@Checkout');
+
+Route::get('checkout_inform','PageController@Checkout_inform');
+
+Route::post('placeOrder','PageController@PlaceOrder');
+
+
+
+Route::get('test','PageController@Test');

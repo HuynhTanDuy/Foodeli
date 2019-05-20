@@ -9,8 +9,10 @@ class Cartbox extends Model
     //
     protected $table="cartbox";
     public $timestamps = false;
-    public function getFood()
+    public function getDetail()
     {
-    	return $this->hasOne('App\Food','id','idFood');
+    	return $this->hasMany('App\Cartbox_detail','idCartbox');
     }
+   
+   
 }

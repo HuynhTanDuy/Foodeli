@@ -10,17 +10,20 @@ use App\News;
 use App\Food;
 use App\Cartbox;
 use App\User;
+use App\Cartbox_detail;
+use App\Order;
 class PageController extends Controller
 {
 	function __construct()
 	{
 		$news= News::all();
-		$cartbox=Cartbox::all();
+		$cartbox=Cartbox::find(1);
     $user= User::all();
 		view()->share('news',$news);
-		view()->share('cartbox',$cartbox);
+		view()->share('cartbox',$cartbox->getDetail);
     view()->share('user',$user);
 	}
+
 	public function Home()
 	{
 		$category=Category::all();
@@ -35,6 +38,7 @@ class PageController extends Controller
 
 		
 	}
+
 	public function News($title,$id)
 	{
               $news=News::find($id);
@@ -49,6 +53,8 @@ class PageController extends Controller
 		$food=Food::where('idLocation',$id)->get();
 		return view('pages.location',['location'=>$location,'food'=>$food]);
 	}
+
+
 	public function postLogin(Request $rq)
 	{
 
@@ -74,6 +80,33 @@ class PageController extends Controller
             }
            
 	}
+
+    public function postLoginToOrder(Request $rq)
+  {
+
+     $this->validate( $rq, 
+            [
+              'email'=>'required',
+              'password'=>'required',
+              
+            ],[
+              'email.required'=>'Vui lòng nhập email',
+
+               'password.required'=>'Vui lòng nhập mật khẩu ',
+             
+            
+            ]);
+     if (Auth::attempt(['email' => $rq->email, 'password' => $rq->password])) 
+            {
+              return redirect('checkout');
+
+            }
+            else {
+              return redirect ('checkout');
+            }
+           
+  }
+
   public function getLogin()
 
   {
@@ -137,9 +170,11 @@ class PageController extends Controller
 
 	public function Order($id)
 	{
-		$order= new Cartbox;
-		$order->idFood=$id;
-		$order->save();
+		$order= Cartbox::find(Auth::user()->id);
+		$order_detail=new Cartbox_detail;
+    $order_detail->idCartBox=$order->id;
+    $order_detail->idFood=$id;
+    $order_detail->save();
 		return redirect('home');
 
 	}
@@ -156,6 +191,70 @@ class PageController extends Controller
 		return view('pages.checkout');
 	}
 
+  public function PlaceOrder(Request $request)
+  {
+     $this->validate($request, 
+            [
+              'addressShip'=>'required',
+              'phoneNumberShip'=>'required',
+              'paymentMethod'=>'required',
+              
+            ],[
+              'addressShip.required'=>'Vui lòng nhập địa chỉ ship',
+              'phoneNumberShip.required'=>'Vui lòng nhập số điện thoại',
+              'paymentMethod.required'=>'Vui lòng chọn phương thức thanh toán',
+                         
+            ]);
+   if ($request->paymentMethod==1) $this->validate($request, 
+            [
+              'card_name'=>'required',
+              'card_type'=>'required',
+              'card_number'=>'required',
+              
+            ],[
+              'card_name.required'=>'Vui lòng nhập tên chủ thẻ',
+              'card_type.required'=>'Vui lòng nhập loại thẻ',
+              'card_number.required'=>'Vui lòng nhập số thẻ',
+                         
+            ]);
 
+    $order=new Order;
+    $order->idCartBox=1;
+    $order->address=$request->addressShip;
+    $order->phone_number=$request->phoneNumberShip;
+    $order->payment_method=$request->paymentMethod;
+    if ($request->paymentMethod==1) {
+      
+      $order->card_name=$request->card_name;
+      $order->card_type=$request->card_type;
+      $order->card_number=$request->card_number;
+    }
+    $order->save();
+
+    //Clear cartbox
+    $cartbox=Cartbox::where('idUser',Auth::user()->id)->get();
+    $cartboxDetail=Cartbox_detail::where('idCartBox',$cartbox[0]->id)->get();
+    foreach ($cartboxDetail as $c) {
+      $c->delete();
+     // $c->save();
+    }
+   
+   return redirect('checkout_inform')->with('annoucement','Đặt hàng thành công');
+
+
+  }
+
+  public function Checkout_inform()
+  {
+    return view('pages.checkout_inform');
+  }
+  
+  public function Test()
+  {
+
+
+    echo $cartboxDetail;
+
+  }
   
 }
