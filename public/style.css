@@ -2159,7 +2159,11 @@ nav.main__menu__nav {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .subscribe__inner {
-    padding: 100px 75px; } }
+    padding: 100px 75px; } 
+  .col-12 .mb--20 .change-pass{
+     margin-left:-90px;
+}
+  }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .subscribe__inner .enter__email__address input {
     flex-basis: 76.5%; }
@@ -2983,9 +2987,12 @@ div.slide__pizza img {
     transform: translateY(0);
     opacity: 1; } }
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+  
   .slide__pizza--2 img {
     width: 90%; }
-
+  .col-12 .mb--20 .change-pass input{
+    margin-left:-150px;
+  }
   .slide__pizza--3 img {
     width: 81%; }
 
@@ -3075,6 +3082,9 @@ div.slide__pizza img {
       padding-right: 10px; }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .change-pass input{
+    margin-left: -110px;
+  }
   .service__wrapper .service .service__title h2 {
     font-size: 17px; } }
 @media only screen and (min-width: 768px) and (max-width: 991px) {

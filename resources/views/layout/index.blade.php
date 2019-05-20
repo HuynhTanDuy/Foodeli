@@ -23,6 +23,7 @@
 		<!-- Modernizer js -->
 		
 		<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+		@yield('scripts')
 	</head>
 	<body>
 		
@@ -52,6 +53,6 @@
 							<script src="js/bootstrap.min.js"></script>
 							<script src="js/plugins.js"></script>
 							<script src="js/active.js"></script>
-							
+							@yield('scripts')
 	</body>
 </html>

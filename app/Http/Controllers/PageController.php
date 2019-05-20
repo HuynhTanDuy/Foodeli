@@ -12,6 +12,7 @@ use App\Cartbox;
 use App\User;
 use App\Cartbox_detail;
 use App\Order;
+use App\Comment;
 class PageController extends Controller
 {
 	function __construct()
@@ -19,9 +20,12 @@ class PageController extends Controller
 		$news= News::all();
 		$cartbox=Cartbox::find(1);
     $user= User::all();
+    $comment = Comment::all();
+
 		view()->share('news',$news);
 		view()->share('cartbox',$cartbox->getDetail);
     view()->share('user',$user);
+    view()->share('comment',$comment);
 	}
 
 	public function Home()
@@ -66,7 +70,7 @@ class PageController extends Controller
           	],[
               'email.required'=>'Vui lòng nhập email',
 
-               'password.required'=>'Vui lòng nhập mật khẩu ',
+              'password.required'=>'Vui lòng nhập mật khẩu ',
              
             
           	]);
@@ -76,7 +80,7 @@ class PageController extends Controller
 
             }
             else {
-            	return redirect ('login');
+            	return redirect ('login')->with('loi','Sai tài khoản hoặc mật khẩu');
             }
            
 	}
@@ -110,7 +114,7 @@ class PageController extends Controller
   public function getLogin()
 
   {
-  	return redirect('home');
+  	return view('pages.login');
   }
   
   public function getLogout()
@@ -156,8 +160,8 @@ class PageController extends Controller
     $user->save();
     return redirect('register')->with('thongbao','Đăng kí thành công');
    }
-   public function getProfile($id)
-   {
+  public function getProfile($id)
+    {
     $user=User::find($id);
     return view('pages.profile',['user'=>$user]);
     }
@@ -168,6 +172,16 @@ class PageController extends Controller
 		echo $cartbox->getFood->name;
 	}
 
+  public function postComment($id, Request $rq)
+   {
+    $comment = new Comment;
+    $comment->content=$rq->comment_area;
+    $comment->idLocation=$id;
+    $comment->idUser=Auth::id();
+    $comment->save();
+    return redirect('location/'.$id);
+   }
+  
 	public function Order($id)
 	{
 		$order= Cartbox::find(Auth::user()->id);
