@@ -34,6 +34,7 @@ Route::post('profile/{id}','ProfileController@postProfile');
 Route::get('news/{TittleNoSign}/{id}','PageController@News');
 
 Route::get('location/{id}','PageController@Location');
+Route::get('reservation/{id}','PageController@Reservation');
 
 Route::get('cartbox','PageController@Cartbox');
 

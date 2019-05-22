@@ -246,7 +246,7 @@
 													<!-- Start Single Food -->
 													<div class="food__menu">
 														<div class="food__menu__thumb">
-															<a href="menu-details.html">
+															<a href="reservation/{{$loca->id}}">
 																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images"> 
 															</a>
 														</div>
@@ -258,7 +258,7 @@
 															<div class="fd__menu__details">
 																<p>Địa chỉ: {{$loca->address}}</p>
 																<div class="delivery__time__rating">
-																	<p> Phí ship : {{$loca->shipCharge}}</p>
+																	
 																	<ul class="fd__rating">
 																		<?php $i=0; ?>
 																		<?php for ($i=0; $i < $loca->points; $i++) { ?>

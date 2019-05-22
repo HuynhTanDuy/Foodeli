@@ -58,6 +58,12 @@ class PageController extends Controller
 		return view('pages.location',['location'=>$location,'food'=>$food]);
 	}
 
+  public function Reservation($id)
+  {
+    $location=Location::find($id);
+    return view('pages.reservation',['location'=>$location]);
+  }
+
 
 	public function postLogin(Request $rq)
 	{
