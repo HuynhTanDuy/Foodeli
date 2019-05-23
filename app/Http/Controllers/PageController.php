@@ -191,7 +191,7 @@ class PageController extends Controller
 	public function Order($id)
 	{
 		$order= Cartbox::find(Auth::user()->id);
-		$order_detail=new Cartbox_detail;
+    $order_detail=new Cartbox_detail;
     $order_detail->idCartBox=$order->id;
     $order_detail->idFood=$id;
     $order_detail->save();
