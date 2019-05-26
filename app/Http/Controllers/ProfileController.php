@@ -10,22 +10,30 @@ use App\News;
 use App\Food;
 use App\Cartbox;
 use App\User;
+use App\Order;
+use App\Cartbox_detail;
 class ProfileController extends Controller
 {
 	function __construct()
 	{
-		$news= News::all();
-		$cartbox=Cartbox::all();
+		  $news= News::all();
+		  $cartbox=Cartbox::all();
     	$user= User::all();
-		view()->share('news',$news);
-		view()->share('cartbox',$cartbox);
+      $order= Order::all();
+      $cartbox_detail=Cartbox_detail::all();
+		  view()->share('news',$news);
+		  view()->share('cartbox',$cartbox);
     	view()->share('user',$user);
+      view()->share('order',$order);
+      view()->share('cartbox_detail',$cartbox_detail);
 	}
 	
    public function getProfile($id)
    {
+
     $user=User::find($id);
 
+  
   return view('pages.profile',['user'=>$user]);
     }
     public function postProfile($id, Request $rq)
@@ -71,5 +79,14 @@ class ProfileController extends Controller
     	}
     	$profile->save();
     	return redirect('profile/'.$id)->with('thongbao','Cập nhật thông tin cá nhân thành công');
+    }
+    public function getLocationRegister($id)
+    {
+      
+      $cartbox= Cartbox::all();
+      $cartbox_detail=Cartbox_detail::all();
+      $user= User::all();
+       return view('pages.location-register');
+
     }
 }
