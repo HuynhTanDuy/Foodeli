@@ -36,7 +36,10 @@
                                         <li class="drop"><i class="fas fa-user"></i>
                                             <ul class="dropdown__menu">
                                                 <li><a href="profile/{{Auth::id()}}">Thông tin cá nhân</a></li>
-                                                <li><a href="menu-details.html">Đăng kí mở cửa hàng</a></li>
+                                                @if (Auth::user()->authority == 1)
+                                                 <li><a href="admin/user/list">Phần quản trị viên</a></li>
+                                                @endif
+                                                <li><a href="profile/{{Auth::id()}}/location-register">Thêm địa điểm yêu thích</a></li>
                                                  <li><a href="logout">Đăng xuất</a></li>
                                             </ul>
                                         </li>
