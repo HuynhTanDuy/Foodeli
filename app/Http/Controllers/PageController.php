@@ -13,6 +13,7 @@ use App\User;
 use App\Cartbox_detail;
 use App\Order;
 use App\Comment;
+use App\Reservation;
 class PageController extends Controller
 {
 	function __construct()
@@ -62,6 +63,31 @@ class PageController extends Controller
   {
     $location=Location::find($id);
     return view('pages.reservation',['location'=>$location]);
+  }
+
+   public function Reserve($id,Request $request)
+  {
+     $this->validate( $request, 
+            [
+              'name'=>'required',
+              'phone_number'=>'required',
+              'time'=>'required'
+              
+            ],[
+              'name.required'=>'Vui lòng nhập tên',
+              'phone_number.required'=>'Vui lòng nhập số điện thoại',
+              'time.required'=>'Vui lòng chọn thời gian ',
+             
+            
+            ]);
+     $reservation= new Reservation;
+     $reservation->name=$request->name;
+     $reservation->phone_number=$request->phone_number;
+     $reservation->time=$request->time;
+     $reservation->idLocation=$id;
+     $reservation->save();
+     return redirect('reservation/'.$id)->with('annoucement','Đặt bàn thành công');
+
   }
 
 
