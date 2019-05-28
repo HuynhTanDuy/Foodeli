@@ -25,11 +25,13 @@ Route::post('register','PageController@postRegister');
 Route::get('logout','PageController@getLogout');
 
 Route::post('location/{id}','PageController@postComment');
+Route::get('profile/{id}/location-register','PageController@getLocationRegister')->middleware('pageLogin');
+Route::post('profile/{id}/location-register','PageController@postLocationRegister')->middleware('pageLogin');
 Route::get('header',function(){
 	return view('layout.header');
 });
-Route::get('profile/{id}','ProfileController@getProfile');
-Route::post('profile/{id}','ProfileController@postProfile');
+Route::get('profile/{id}','PageController@getProfile')->middleware('pageLogin');
+Route::post('profile/{id}','PageController@postProfile')->middleware('pageLogin');
 
 Route::get('news/{TittleNoSign}/{id}','PageController@News');
 
@@ -37,17 +39,17 @@ Route::get('location/{id}','PageController@Location');
 Route::get('reservation/{id}','PageController@Reservation');
 Route::post('reserve/{id}','PageController@Reserve');
 
-Route::get('cartbox','PageController@Cartbox');
+Route::get('cartbox','PageController@Cartbox')->middleware('pageLogin');
 
-Route::get('order/{id}','PageController@Order');
+Route::get('order/{id}','PageController@Order')->middleware('pageLogin');
 
-Route::get('deleteOrder/{id}','PageController@DeleteOrder');
+Route::get('deleteOrder/{id}','PageController@DeleteOrder')->middleware('pageLogin');
 
-Route::get('checkout','PageController@Checkout');
+Route::get('checkout','PageController@Checkout')->middleware('pageLogin');
 
-Route::get('checkout_inform','PageController@Checkout_inform');
+Route::get('checkout_inform','PageController@Checkout_inform')->middleware('pageLogin');
 
-Route::post('placeOrder','PageController@PlaceOrder');
+Route::post('placeOrder','PageController@PlaceOrder')->middleware('pageLogin');
 
 
 
@@ -55,7 +57,7 @@ Route::get('test','PageController@Test');
 
 
 //Route cho trang admin
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'pageLogin'],function(){
 	Route::group(['prefix'=>'user'],function(){
 
 		Route::get('list','UserController@getUser');

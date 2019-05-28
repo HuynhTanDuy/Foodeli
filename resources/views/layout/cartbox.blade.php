@@ -12,7 +12,7 @@
 							<div class="cartbox__item">
 								<div class="cartbox__item__thumb">
 									<a href="product-details.html">
-										<img src={{$c->getFood->image}} alt="small thumbnail">
+										<img src="{{$c->getFood->image}}" alt="small thumbnail">
 									</a>
 								</div>
 								<div class="cartbox__item__content">
