@@ -252,7 +252,7 @@
 														</div>
 														<div class="food__menu__details">
 															<div class="fd__menu__title__prize">
-																<h4><a href="menu-details.html">{{$loca->name}}</a></h4>
+																<h4><a href="reservation/{{$loca->id}}">{{$loca->name}}</a></h4>
 																<span class="menu__prize">$15 </span>
 															</div>
 															<div class="fd__menu__details">
@@ -308,7 +308,7 @@
 														</div>
 														<div class="food__menu__details">
 															<div class="fd__menu__title__prize">
-																<h4><a href="menu-details.html">{{$loca->name}}</a></h4>
+																<h4><a href="reservation/{{$loca->id}}">{{$loca->name}}</a></h4>
 																<span class="menu__prize">$22</span>
 															</div>
 															<div class="fd__menu__details">
