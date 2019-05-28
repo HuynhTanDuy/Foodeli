@@ -26,6 +26,13 @@
                                    <a  class="accountbox-trigger food__btn grey--btn theme--hover" href="reserve/{{$location->id}}">Đặt bàn ngay</a>
                                   
                                 </nav>
+                                @if(count($errors)>0)
+                                    <div class="alert alert-danger"> 
+                                         @foreach ($errors->all() as $err) 
+                                            {{$err}} <br>
+                                        @endforeach
+                                    </div>
+                                @endif
                                 @if(session('annoucement'))
                                     <div class="alert alert-success">
                                         {{session('annoucement')}}
@@ -131,11 +138,7 @@
         <div class="accountbox-wrapper">
             <div class="accountbox text-left">
                 <ul class="nav accountbox__filters" id="myTab" role="tablist">
-                      @if(session('loi'))
-                <div class="alert alert-danger">
-                    {{session('loi')}}
-                </div>
-                @endif
+                     
                     <li>
                         <a class="active" id="log-tab" data-toggle="tab" href="#log" role="tab" aria-controls="log" aria-selected="true">Thông tin đặt bàn</a>
                     </li>
@@ -147,11 +150,11 @@
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <div class="single-input">
                                 <h5>Họ tên</h5>
-                                <input class="cr-round--lg" name="name" type="text" value="{{Auth::user()->name}}">
+                                <input class="cr-round--lg" name="name" type="text" @if (Auth::user()) value="{{Auth::user()->name}}" @endif>
                             </div>
                             <div class="single-input">
                                 <h5>Số điện thoại</h5>
-                                <input class="cr-round--lg" name="phone_number" type="text" value="{{Auth::user()->phone_number}}">
+                                <input class="cr-round--lg" name="phone_number" type="text"  @if (Auth::user()) value="{{Auth::user()->phone_number}}" @endif>
                             </div>
                             <div class="single-input">
                                 <h5>Thời gian</h5>
