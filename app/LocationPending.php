@@ -9,5 +9,9 @@ class LocationPending extends Model
     //
     protected $table="location_pending";
     public $timestamps = false;
+  	public function users(){
+    	return $this->hasOne('App\User','id','idUser');
+    }
+    
      
 }

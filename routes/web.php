@@ -127,4 +127,8 @@ Route::group(['prefix'=>'admin','middleware'=>'pageLogin'],function(){
 		Route::get('delete/{id}','SlideController@Delete');
 	
 	}); //route for slide
+	Route::group(['prefix'=>'location_pending'],function(){
+       Route::get('list','LocationPendingController@getLocationPending');
+       Route::get('accept/{id}','LocationPendingController@postAcceptLocation');
+	}); //route for location pending
 });	
