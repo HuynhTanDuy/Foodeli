@@ -47,7 +47,7 @@
                         <td>{{$lp->users->name}}</td>
                          <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/location_pending/accept/{{$lp->id}}">Duyệt</a></td>
                         <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/news/delete/{{$lp->id}}">Sửa</a></td>
-                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/news/edit/{{$lp->id}}">Xóa</a></td>
+                        <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/location_pending/delete/{{$lp->id}}">Xóa</a></td>
                     </tr>
                     @endforeach
                 </tbody>

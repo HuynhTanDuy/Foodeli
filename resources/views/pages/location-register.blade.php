@@ -31,7 +31,7 @@
 
 								<label>Những địa điểm yêu thích của bạn chưa có trên Foodeli? Chia sẻ với cộng đồng ngay!</label>
 							</div>
-								<form action="profile/{{Auth::id()}}/location-register" class="billing-form checkout-form" method="POST" enctype="multipart/form-data">
+								<form action="location-register/{{Auth::id()}}" class="billing-form checkout-form" method="POST" enctype="multipart/form-data">
 									<input type="hidden" name="_token" value="{{csrf_token()}}">
 									<div class="row">
 										<div class="col-12 mb--20">

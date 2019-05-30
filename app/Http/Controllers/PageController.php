@@ -372,6 +372,12 @@ class PageController extends Controller
             $locationPending->description=$rq->desLocation;
             $locationPending->idUser=$id;
             $locationPending->save();
-            return redirect('profile/'.$id.'/location-register')->with('thongbao','Đã thêm địa điểm cửa hàng yêu thích của bạn. Vui lòng đợi chúng tôi kiểm duyệt.');
+            return redirect('location-register/'.$id)->with('thongbao','Đã đăng kí cửa hàng thành công. Vui lòng đợi chúng tôi kiểm duyệt trong vòng 24-48h tới.');
+    }
+    public function getLocationManagement($id)
+    {  
+
+        $location = Location::where('idOwner',$id)->first();
+        echo $location->idOwner;
     }
 }
