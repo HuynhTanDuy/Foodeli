@@ -448,6 +448,6 @@ class PageController extends Controller
     {
       $food= Food::findOrFail($id);
       $food->delete();
-       return redirect('location-management/'.$id1  )->with('annoucement','Xóa món thành công');
+       return redirect('location-management/'.$id1)->with('annoucement','Xóa món thành công');
     }
 }
