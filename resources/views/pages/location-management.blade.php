@@ -129,7 +129,7 @@
                                                             
                                                           
                                                             <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/location/edit/">Sửa</a></td>
-                                                              <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/location/delete/">Xóa</a></td>
+                                                              <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="location-management/delete/{{Auth::id()}}/{{$f->id}}">Xóa</a></td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
@@ -150,16 +150,16 @@
                                         <div class="row">
                                               <div class="col-6 mb--20">
                                                 <label>Tên món ăn</label>
-                                                <input type="text" name="nameFood" value="{{$location->name}}">
+                                                <input type="text" name="nameFood" >
                                             </div>
                                             <div class="col-7 mb--20">
                                                 <label>Ảnh đại diện</label>
-                                                <input type="text" name="" value="{{$location->name}}">
+                                                <input type="text" name="" >
                                             </div>
                                              <div class="col-5 mb--20"></div>
                                                <div class="col-3 mb--20">
                                                 <label>Đơn giá</label>
-                                                <input type="text" name="priceFood" value="{{$location->name}}">
+                                                <input type="text" name="priceFood" >
                                             </div>
                                               <div class="col-10 mb--20">
                                           <label>Mô tả</label>

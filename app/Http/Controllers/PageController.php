@@ -442,6 +442,12 @@ class PageController extends Controller
       $food->price=$rq->priceFood;
       $food->description=$rq->desFood;
       $food->save();
-      return redirect('location-management/'.$id)->with('annoucement','Thêm món ăn thành công');
+      return redirect('location-management/'.$id)->with('annoucement','Thêm món thành công');
+    }
+    public function DeleteFood($id1,$id)
+    {
+      $food= Food::findOrFail($id);
+      $food->delete();
+       return redirect('location-management/'.$id1  )->with('annoucement','Xóa món thành công');
     }
 }
