@@ -230,7 +230,7 @@ class PageController extends Controller
 
 	public function DeleteOrder($id)
 	{
-		$order=Cartbox::find($id);
+		$order=Cartbox_detail::find($id);
 		$order->delete();
 		return redirect('home');
 	}
