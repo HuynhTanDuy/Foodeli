@@ -12,4 +12,8 @@ class Location extends Model
      public function comment(){
      	return $this->hasMany('App\Comment','idLocation','id');
      }
+     public function category()
+     {
+     	return $this->hasOne('App\Category','id','idCategory');
+     }
 }

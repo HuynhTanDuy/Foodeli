@@ -378,6 +378,44 @@ class PageController extends Controller
     {  
 
         $location = Location::where('idOwner',$id)->first();
-        echo $location->idOwner;
+        $category = Category::where('id',$location->idCategory)->first();
+        
+        return view('pages.location-management',['location'=>$location,'category'=>$category]);
+    }
+
+    public function postUpdateLocationManagement(Request $rq,$id)
+    {
+       $location = Location::where('idOwner',$id)->first();
+        $this->validate($rq,
+        [
+            'name'=>'required',
+            'address'=>'required',
+            'idCategory'=>'required',
+            'openTime'=>'required',
+            'closeTime'=>'required',
+            'shipCharge'=>'required',
+            'phone_number'=>'required',
+        ],
+        [   
+            'name.required'=>"Bạn chưa nhập tên quán ăn",
+            'address.required'=>"Bạn chưa nhập địa chỉ",
+            'idCategory.required'=>"Bạn chưa nhập loại cửa hàng",
+            'openTime.required'=>"Bạn chưa nhập giờ mở cửa",
+            'closeTime.required'=>"Bạn chưa nhập giờ đóng cửa",
+            'shipCharge.required'=>"Vui lòng nhập phí ship",
+            'phone_number.required'=>'Vui lòng nhập số điện thoại'
+           
+        ]);
+
+        $location->name=$rq->name;
+        $location->address=$rq->address;
+        $location->idCategory=$rq->idCategory;
+        $location->openTime=$rq->openTime;
+        $location->closeTime=$rq->closeTime;
+        $location->phone_number=$rq->phone_number;
+        $location->shipCharge=$rq->shipCharge;
+        $location->save();
+        return redirect('location-management/'.$id)->with('annoucement','Cập nhật cửa hàng thành công');
+
     }
 }

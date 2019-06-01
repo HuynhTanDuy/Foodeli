@@ -2158,6 +2158,7 @@ nav.main__menu__nav {
   opacity: 1; }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  
   .subscribe__inner {
     padding: 100px 75px; } 
   .col-12 .mb--20 .change-pass{
@@ -2165,6 +2166,7 @@ nav.main__menu__nav {
 }
   }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  
   .subscribe__inner .enter__email__address input {
     flex-basis: 76.5%; }
 
@@ -2260,7 +2262,9 @@ nav.main__menu__nav {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .subscribe__inner.subscribe--3 {
-    padding: 84px 100px 30px; } }
+    padding: 84px 100px 30px; } 
+
+}
 /*------------------------------
 	Banner Area
 --------------------------------*/
@@ -2614,6 +2618,7 @@ nav.main__menu__nav {
   color: #d50c0d; }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+
   .footer .ftr__title {
     font-size: 20px; }
 
@@ -2630,6 +2635,7 @@ nav.main__menu__nav {
   .single__sm__post .sin__post__details p {
     font-size: 13px; } }
 @media only screen and (max-width: 767px) {
+  
   .footer.gallery {
     padding-left: 0;
     padding-right: 0; }
@@ -2987,7 +2993,9 @@ div.slide__pizza img {
     transform: translateY(0);
     opacity: 1; } }
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
-  
+  #checkout-accordion{
+width:1000px;
+}
   .slide__pizza--2 img {
     width: 90%; }
   .col-12 .mb--20 .change-pass input{
@@ -3009,6 +3017,9 @@ div.slide__pizza img {
   .slider--two .slide .slider__content .slider__inner .slider__input {
     padding: 35px 21px; } }
 @media only screen and (max-width: 767px) {
+#checkout-accordion{
+width:550px;
+}
   .slider__text__img img.layear-1 {
     width: 93%; }
 
@@ -3030,6 +3041,9 @@ div.slide__pizza img {
   .slider--two .slide .slider__content .slider__inner .slider__input input {
     width: 100%; } }
 @media only screen and (max-width: 575px) {
+   #checkout-accordion{
+width:380px;
+}
   .slide .slider__content .slider__inner h1 {
     font-size: 22px;
     line-height: 20px; }
@@ -3082,6 +3096,9 @@ div.slide__pizza img {
       padding-right: 10px; }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+   #checkout-accordion{
+width:900px;
+}
   .change-pass input{
     margin-left: -110px;
   }
@@ -8259,7 +8276,7 @@ input[type="submit"] {
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background: rgba(0, 0, 0, 0) url("images/icons/select-arrow-down-2.png") no-repeat scroll right 5px center;
+    background: rgba(0, 0, 0, 0) url("images/icons/select-ar-down-2.png") no-repeat scroll right 5px center;
     width: 100%;
     border: 1px solid #ededed;
     background-color: #ffffff;
@@ -8335,6 +8352,7 @@ input[type="submit"] {
 
 /*======= About Us Styles =======*/
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+
   .choose__img--1 {
     bottom: 0;
     right: -154px; }
@@ -8353,6 +8371,7 @@ input[type="submit"] {
     margin-left: 150px;
     margin-right: 150px; } }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+ 
   .slide__pizza--3 {
     bottom: -17%;
     right: -132px; }

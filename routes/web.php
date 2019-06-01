@@ -28,6 +28,8 @@ Route::get('location-register/{id}','PageController@getLocationRegister')->middl
 Route::post('location-register/{id}','PageController@postLocationRegister')->middleware('pageLogin');	
 Route::get('logout','PageController@getLogout');
 Route::get('location-management/{id}','PageController@getLocationManagement')->middleware('pageLogin');
+Route::post('location-management/{id}','PageController@postUpdateLocationManagement')->middleware('pageLogin');
+
 Route::get('header',function(){
 	return view('layout.header');
 });
