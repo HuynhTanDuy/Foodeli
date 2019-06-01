@@ -54,6 +54,18 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                            <a href="admin/location/list"><i class="fa fa-bar-chart-o fa-fw"></i>Quán ăn chờ duyệt<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="admin/location_pending/list">List</a>
+                                </li>
+                                <li>
+                                    <a href="admin/location_pending/add">Add</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
 
                          <li>
                             <a href="admin/news/list"><i class="fa fa-bar-chart-o fa-fw"></i> Tin tức<span class="fa arrow"></span></a>

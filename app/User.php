@@ -36,5 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $table="users";
     public $timestamps = false;
+    
+  /*  public function locationpending(){
+        return $this->hasOne('App\LocationPending','idUser','id');
+    }*/
 }

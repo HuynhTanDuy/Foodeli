@@ -22,11 +22,14 @@ Route::get('signup','PageController@getSignUp');
 Route::post('signup','PageController@postSignUp');
 Route::get('register','PageController@getRegister');
 Route::post('register','PageController@postRegister');
-Route::get('logout','PageController@getLogout');
 
 Route::post('location/{id}','PageController@postComment');
-Route::get('profile/{id}/location-register','PageController@getLocationRegister')->middleware('pageLogin');
-Route::post('profile/{id}/location-register','PageController@postLocationRegister')->middleware('pageLogin');
+Route::get('location-register/{id}','PageController@getLocationRegister')->middleware('pageLogin');
+Route::post('location-register/{id}','PageController@postLocationRegister')->middleware('pageLogin');	
+Route::get('logout','PageController@getLogout');
+Route::get('location-management/{id}','PageController@getLocationManagement')->middleware('pageLogin');
+Route::post('location-management/{id}','PageController@postUpdateLocationManagement')->middleware('pageLogin');
+
 Route::get('header',function(){
 	return view('layout.header');
 });
@@ -127,4 +130,9 @@ Route::group(['prefix'=>'admin','middleware'=>'pageLogin'],function(){
 		Route::get('delete/{id}','SlideController@Delete');
 	
 	}); //route for slide
+	Route::group(['prefix'=>'location_pending'],function(){
+       Route::get('list','LocationPendingController@getLocationPending');
+       Route::get('accept/{id}','LocationPendingController@postAcceptLocation');
+       Route::get('delete/{id}','LocationPendingController@getDeleteLocation');
+	}); //route for location pending
 });	

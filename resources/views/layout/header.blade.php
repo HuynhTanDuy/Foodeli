@@ -38,8 +38,12 @@
                                                 <li><a href="profile/{{Auth::id()}}">Thông tin cá nhân</a></li>
                                                 @if (Auth::user()->authority == 1)
                                                  <li><a href="admin/user/list">Phần quản trị viên</a></li>
+                                                 @elseif (Auth::user()->authority == 2)
+                                                 <li><a href="location-management/{{Auth::id()}}">
+                                                 Quản lí cửa hàng</a></li>
+                                                @elseif (Auth::user()->authority == 0)
+                                                <li><a href="location-register/{{Auth::id()}}">Đăng kí mở cửa hàng</a></li>
                                                 @endif
-                                                <li><a href="profile/{{Auth::id()}}/location-register">Thêm địa điểm yêu thích</a></li>
                                                  <li><a href="logout">Đăng xuất</a></li>
                                             </ul>
                                         </li>
