@@ -30,7 +30,9 @@ Route::get('logout','PageController@getLogout');
 Route::get('location-management/{id}','PageController@getLocationManagement')->middleware('pageLogin');
 Route::post('location-management/{id}','PageController@postUpdateLocationManagement')->middleware('pageLogin');
 Route::post('location-management/add/{id}','PageController@postAddFood')->middleware('pageLogin');
+Route::get('location-management/delete/{id1}/{id}','PageController@DeleteFood')->middleware('pageLogin');
 Route::get('header',function(){
+
 	return view('layout.header');
 });
 Route::get('profile/{id}','PageController@getProfile')->middleware('pageLogin');
