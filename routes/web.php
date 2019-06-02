@@ -31,6 +31,8 @@ Route::get('location-management/{id}','PageController@getLocationManagement')->m
 Route::post('location-management/{id}','PageController@postUpdateLocationManagement')->middleware('pageLogin');
 Route::post('location-management/add/{id}','PageController@postAddFood')->middleware('pageLogin');
 Route::get('location-management/delete/{id1}/{id}','PageController@DeleteFood')->middleware('pageLogin');
+Route::get('location-management/edit/{id}','PageController@getEditFood')->middleware('pageLogin');
+Route::post('location-management/edit/{id}','PageController@postEditFood')->middleware('pageLogin');
 Route::get('header',function(){
 
 	return view('layout.header');

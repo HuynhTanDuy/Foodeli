@@ -450,4 +450,33 @@ class PageController extends Controller
       $food->delete();
        return redirect('location-management/'.$id1)->with('annoucement','Xóa món thành công');
     }
+    public function  getEditFood($id)
+    {
+      $food= Food::find($id);
+      return view('pages.edit-food',['food'=>$food]);
+    }
+    public function postEditFood(Request $rq,$id)
+    {
+      
+       $food= Food::find($id);
+         $this->validate($rq,
+        [
+            'name'=>'required',
+            'price'=>'required',
+            'des'=>'required',
+        ],
+        [   
+            'name.required'=>"Vui lòng nhập tên món",
+            'price.required'=>'Vui lòng nhập đơn giá',
+            'des.required'=>'Vui lòng nhập mô tả',
+
+           
+           
+        ]);
+        $food->name=$rq->name;
+        $food->price=$rq->price;
+        $food->description=$rq->des;
+        $food->save();
+        return redirect('location-management/'.Auth::id())->with('annoucement','Cập nhật món ăn thành công');
+    }
 }
