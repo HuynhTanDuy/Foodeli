@@ -128,7 +128,7 @@
                                                             <td>{{$f->description}}</td>
                                                             
                                                           
-                                                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/location/edit/">Sửa</a></td>
+                                                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="location-management/edit/{{$f->id}}">Sửa</a></td>
                                                               <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="location-management/delete/{{Auth::id()}}/{{$f->id}}">Xóa</a></td>
                                                         </tr>
                                                         @endforeach
