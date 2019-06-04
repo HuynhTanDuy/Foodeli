@@ -390,9 +390,10 @@ class PageController extends Controller
     {  
 
         $location = Location::where('idOwner',$id)->first();
+        $food= Food::where('idLocation',$location->id)->get();
         $category = Category::where('id',$location->idCategory)->first();
         
-        return view('pages.location-management',['location'=>$location,'category'=>$category]);
+        return view('pages.location-management',['location'=>$location,'category'=>$category,'food'=>$food]);
     }
 
     public function postUpdateLocationManagement(Request $rq,$id)
@@ -429,5 +430,65 @@ class PageController extends Controller
         $location->save();
         return redirect('location-management/'.$id)->with('annoucement','Cập nhật cửa hàng thành công');
 
+    }
+    public function postAddFood(Request $rq,$id)
+    {
+     $location = Location::where('idOwner',$id)->first();
+      $this->validate($rq,
+        [
+            'nameFood'=>'required',
+            'priceFood'=>'required',
+            'desFood'=>'required',
+        ],
+        [   
+            'nameFood.required'=>"Vui lòng nhập tên món",
+            'priceFood.required'=>'Vui lòng nhập đơn giá',
+            'desFood.required'=>'Vui lòng nhập mô tả',
+
+           
+           
+        ]);
+      $food = new Food;
+      $food->idLocation=$location->id;
+      $food->name=$rq->nameFood;
+      $food->price=$rq->priceFood;
+      $food->description=$rq->desFood;
+      $food->save();
+      return redirect('location-management/'.$id)->with('annoucement','Thêm món thành công');
+    }
+    public function DeleteFood($id1,$id)
+    {
+      $food= Food::findOrFail($id);
+      $food->delete();
+       return redirect('location-management/'.$id1)->with('annoucement','Xóa món thành công');
+    }
+    public function  getEditFood($id)
+    {
+      $food= Food::find($id);
+      return view('pages.edit-food',['food'=>$food]);
+    }
+    public function postEditFood(Request $rq,$id)
+    {
+      
+       $food= Food::find($id);
+         $this->validate($rq,
+        [
+            'name'=>'required',
+            'price'=>'required',
+            'des'=>'required',
+        ],
+        [   
+            'name.required'=>"Vui lòng nhập tên món",
+            'price.required'=>'Vui lòng nhập đơn giá',
+            'des.required'=>'Vui lòng nhập mô tả',
+
+           
+           
+        ]);
+        $food->name=$rq->name;
+        $food->price=$rq->price;
+        $food->description=$rq->des;
+        $food->save();
+        return redirect('location-management/'.Auth::id())->with('annoucement','Cập nhật món ăn thành công');
     }
 }
