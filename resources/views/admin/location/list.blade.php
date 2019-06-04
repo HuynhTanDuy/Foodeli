@@ -43,7 +43,7 @@
                                 <td>
                                    {{$loca->idCategory}}
                                 </td>
-                                <td>{{$loca->avatar}}</td>
+                                <td><img style="width: 100px;height:100px" src="images/food/{{$loca->avatar}}"></td>
                                 <td>{{$loca->openTime}}</td>
                                 <td>{{$loca->closeTime}}</td>
                                 <td>{{$loca->points}}</td>

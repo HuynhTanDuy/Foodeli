@@ -38,11 +38,11 @@
                             
                             <div class="form-group">
                                 <label>Name</label>
-                                <input class="form-control" name="name" placeholder="Please Enter Name" />
+                                <input class="form-control" name="name"  />
                             </div>
                             <div class="form-group">
                                 <label>Địa chỉ</label>
-                                <input  class="form-control" name="address" placeholder="Please Enter Email" />
+                                <input  class="form-control" name="address" />
                             </div>
                             <div class="form-group">
                                 <label>Thể loại</label>
@@ -55,23 +55,25 @@
                             </div>
                             <div class="form-group">
                                 <label>Ảnh đại diện</label>
-                                <input  class="form-control" name="avatar" placeholder="Please Enter Phone Number" />
+                                <br>
+                                
+                            <input type="file" name="avatar" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Giờ mở cửa</label>
-                                <input  class="form-control" name="openTime" placeholder="Please Enter Phone Number" />
+                                <input  class="form-control" name="openTime"  />
                             </div>
                             <div class="form-group">
                                 <label>Giờ đóng cửa</label>
-                                <input  class="form-control" name="closeTime" placeholder="Please Enter Phone Number" />
+                                <input  class="form-control" name="closeTime"  />
                             </div>
                             <div class="form-group">
                                 <label>Điểm</label>
-                                <input  class="form-control" name="points" placeholder="Please Enter Phone Number" />
+                                <input  class="form-control" name="points"  />
                             </div>
                             <div class="form-group">
                                 <label>Phí ship</label>
-                                <input  class="form-control" name="shipCharge" placeholder="Please Enter Phone Number" />
+                                <input  class="form-control" name="shipCharge"  />
                             </div>
                            
                             

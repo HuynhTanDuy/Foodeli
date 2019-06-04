@@ -33,6 +33,11 @@ Route::post('location-management/add/{id}','PageController@postAddFood')->middle
 Route::get('location-management/delete/{id1}/{id}','PageController@DeleteFood')->middleware('pageLogin');
 Route::get('location-management/edit/{id}','PageController@getEditFood')->middleware('pageLogin');
 Route::post('location-management/edit/{id}','PageController@postEditFood')->middleware('pageLogin');
+
+Route::get('orderList/{id}','PageController@getOrderList');
+
+
+
 Route::get('header',function(){
 
 	return view('layout.header');

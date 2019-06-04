@@ -25,6 +25,11 @@
                             {{session('thongbao')}}
                         </div>
                         @endif
+                         @if (session('errors'))
+                        <div class="alert alert-danger">
+                            {{session('errors')}}
+                        </div>
+                        @endif
                         <form action="admin/location/editPost/{{$location->id}}" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                              <div class="form-group">
@@ -46,7 +51,10 @@
                             </div>
                             <div class="form-group">
                                 <label>Ảnh đại diện</label>
-                                <input  class="form-control" name="avatar" value="{{$location->avatar}}" />
+                                <br>
+                                <img width="250px" src="images/food/{{$location->avatar}}">
+                            <input type="file" name="avatar" class="form-control">
+                                
                             </div>
                             <div class="form-group">
                                 <label>Giờ mở cửa</label>

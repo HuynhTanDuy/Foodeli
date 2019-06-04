@@ -111,7 +111,7 @@
 													<div class="food__menu">
 														<div class="food__menu__thumb">
 															<a href="location/{{$loca->id}}">
-																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images"> 
+																<img width="100px" height="100px" src=images/food/{{$loca->avatar}} alt="product images"> 
 															</a>
 														</div>
 														<div class="food__menu__details">
@@ -167,7 +167,7 @@
 													<div class="food__menu">
 														<div class="food__menu__thumb">
 															<a href="menu-details.html">
-																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images">
+																<img width="100px" height="100px" src=images/food/{{$loca->avatar}}  alt="product images">
 															</a>
 														</div>
 														<div class="food__menu__details">
@@ -247,7 +247,7 @@
 													<div class="food__menu">
 														<div class="food__menu__thumb">
 															<a href="reservation/{{$loca->id}}">
-																<img width="100px" height="100px" src={{$loca->avatar}} alt="product images"> 
+																<img width="100px" height="100px" src=images/food/{{$loca->avatar}}  alt="product images"> 
 															</a>
 														</div>
 														<div class="food__menu__details">

@@ -427,11 +427,13 @@ class PageController extends Controller
             'nameFood'=>'required',
             'priceFood'=>'required',
             'desFood'=>'required',
+            'avatar'=>'required',
         ],
         [   
             'nameFood.required'=>"Vui lòng nhập tên món",
             'priceFood.required'=>'Vui lòng nhập đơn giá',
             'desFood.required'=>'Vui lòng nhập mô tả',
+            'avatar.required'=>'Vui lòng chọn ảnh đại diện',
 
            
            
@@ -441,6 +443,30 @@ class PageController extends Controller
       $food->name=$rq->nameFood;
       $food->price=$rq->priceFood;
       $food->description=$rq->desFood;
+
+if($rq->hasFile('avatar'))
+          {
+            $file=$rq->file('avatar');
+            $name=$file->getClientOriginalName();
+            $image=str_random(4)."_". $name;
+             $duoi=$file->getClientOriginalExtension();
+          if($duoi !='jpg' && $duoi!='png' && $duoi!='jpeg')
+          {
+             return redirect('location-management/'.$id)->with('errors','Chỉ được thêm đuôi png, jpg, jpeg');
+          }
+       while(file_exists("images/food/".$image))
+       {
+
+        $image=str_random(4)."_".$name;
+       }
+       $file->move("images/food/",$image);
+        
+       $food->image=$image;
+          }
+      else {
+        $food->image="";
+      }
+
       $food->save();
       return redirect('location-management/'.$id)->with('annoucement','Thêm món thành công');
     }
@@ -478,5 +504,9 @@ class PageController extends Controller
         $food->description=$rq->des;
         $food->save();
         return redirect('location-management/'.Auth::id())->with('annoucement','Cập nhật món ăn thành công');
+    }
+    public function getOrderList($id)
+    {
+      return view('pages.order');
     }
 }
