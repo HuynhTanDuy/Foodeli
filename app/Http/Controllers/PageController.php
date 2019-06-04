@@ -17,18 +17,27 @@ use App\Reservation;
 use App\LocationPending;
 class PageController extends Controller
 {
+  protected $user;
 	function __construct()
 	{
-		$news= News::all();
-		$cartbox=Cartbox::find(1);
-    $user= User::all();
-    $comment = Comment::all();
-    $cartbox_detail= Cartbox_detail::all();
+     $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+             $cartbox=Cartbox::where('idUser',$this->user->id)->get();
+             $cartbox_detail= Cartbox_detail::where('idCartBox',$cartbox[0]->id)->take(1)->get();
+             $user=User::find(Auth::user()->id);
+             view()->share('cartbox_detail',$cartbox_detail);
+             view()->share('cartbox',$cartbox[0]->getDetail);
+             view()->share('user',$user);
+             return $next($request);
+        });
+    $news= News::all();
+	  $comment = Comment::all();
+    
 		view()->share('news',$news);
-		view()->share('cartbox',$cartbox->getDetail);
-    view()->share('user',$user);
+		
+   
     view()->share('comment',$comment);
-    view()->share('cartbox_detail',$cartbox_detail);
+    
 	}
 
 	public function Home()
@@ -193,6 +202,9 @@ class PageController extends Controller
     $user->authority=0;
     $user->password= bcrypt($rq->password);
     $user->save();
+    $cartbox=new Cartbox;
+    $cartbox->idUser=$user->id;
+    $cartbox->save();
     return redirect('register')->with('thongbao','Đăng kí thành công');
    }
   public function getProfile($id)
@@ -219,12 +231,12 @@ class PageController extends Controller
   
 	public function Order($id)
 	{
-		$order= Cartbox::find(Auth::user()->id);
-    $order_detail=new Cartbox_detail;
-    $order_detail->idCartBox=$order->id;
-    $order_detail->idFood=$id;
-    $order_detail->save();
-		return redirect('home');
+		$order= Cartbox::where('idUser',Auth::user()->id)->get();
+     $order_detail=new Cartbox_detail;
+     $order_detail->idCartBox=$order[0]->id;
+     $order_detail->idFood=$id;
+     $order_detail->save();
+		 return redirect('home');
 
 	}
 

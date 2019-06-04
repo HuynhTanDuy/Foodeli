@@ -34,7 +34,7 @@
                                 <th>Edit</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody> 
                             @foreach ($location as $loca)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$loca->id}}</td>
@@ -43,7 +43,7 @@
                                 <td>
                                    {{$loca->idCategory}}
                                 </td>
-                                <td>{{$loca->avatar}}</td>
+                                <td> <img width="200" height="200" src=" {{$loca->avatar}}"> </td>
                                 <td>{{$loca->openTime}}</td>
                                 <td>{{$loca->closeTime}}</td>
                                 <td>{{$loca->points}}</td>

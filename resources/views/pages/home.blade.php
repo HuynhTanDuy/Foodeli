@@ -106,7 +106,7 @@
 														<?php $j=0; ?>
 													@foreach ($location as $loca)
 													
-													<div class="col-md-5 @if ( $j==1 ) offset-md-2 @endif">
+													<div class="col-md-5 @if ( ($j%2)!=0 ) offset-md-2 @endif">
 													<!-- Start Single Food -->
 													<div class="food__menu">
 														<div class="food__menu__thumb">
@@ -242,7 +242,7 @@
 														<?php $j=0; ?>
 													@foreach ($location_reserve as $loca)
 													
-													<div class="col-md-5 @if ( $j==1 ) offset-md-1 @endif">
+													<div class="col-md-5 @if ( ($j%2)!=0 ) offset-md-1 @endif">
 													<!-- Start Single Food -->
 													<div class="food__menu">
 														<div class="food__menu__thumb">
