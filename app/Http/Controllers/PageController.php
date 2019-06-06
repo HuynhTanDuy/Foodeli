@@ -21,13 +21,14 @@ class PageController extends Controller
 	function __construct()
 	{
      $this->middleware(function ($request, $next) {
-            $this->user = Auth::user();
+             if (Auth::user()) $this->user = Auth::user(); 
+             else $this->user=User::find(1) ;
              $cartbox=Cartbox::where('idUser',$this->user->id)->get();
              $cartbox_detail= Cartbox_detail::where('idCartBox',$cartbox[0]->id)->take(1)->get();
-             $user=User::find(Auth::user()->id);
+             //$user=User::find(Auth::user()->id);
              view()->share('cartbox_detail',$cartbox_detail);
              view()->share('cartbox',$cartbox[0]->getDetail);
-             view()->share('user',$user);
+             view()->share('user',$this->user);
              return $next($request);
         });
     $news= News::all();
