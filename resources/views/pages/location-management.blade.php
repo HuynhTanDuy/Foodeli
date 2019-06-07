@@ -22,6 +22,11 @@
                                 {{session('annoucement')}}
                             </div>
                             @endif
+                             @if (session('errors'))
+                            <div class="alert alert-danger">
+                                {{session('errors')}}
+                            </div>
+                            @endif
                         </nav>
                     </div>
                 </div>
@@ -112,8 +117,8 @@
                                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                     <thead>
                                                         <tr align="center">
-                                                            
                                                             <th>Tên</th>
+                                                            <th>Ảnh minh họa</th>
                                                             <th>Đơn giá</th>
                                                             <th>Mô tả</th>
                                                             <th>Sửa</th>
@@ -124,12 +129,14 @@
                                                         @foreach ($food as $f)
                                                         <tr class="odd gradeX" align="center">
                                                             <td>{{$f->name}}</td>
+                                                            <td><img style="width:100px; height:100px" src="images/food/{{$f->image}}"></td>
                                                             <td>{{$f->price}}</td>
+                                                            
                                                             <td>{{$f->description}}</td>
                                                             
                                                           
-                                                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="location-management/edit/{{$f->id}}">Sửa</a></td>
-                                                              <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="location-management/delete/{{Auth::id()}}/{{$f->id}}">Xóa</a></td>
+                                                            <td class="center"><i class="fas fa-edit"></i> <a href="location-management/edit/{{$f->id}}">Sửa</a></td>
+                                                              <td class="center"><i class="fas fa-trash-alt"></i><a href="location-management/delete/{{Auth::id()}}/{{$f->id}}"> Xóa</a></td>
                                                         </tr>
                                                         @endforeach
                                                     </tbody>
@@ -145,17 +152,16 @@
                             <a class="accordion-head collapsed" data-toggle="collapse" data-parent="menu1-accordion" href="#menu1-method">Thêm món ăn</a>
                             <div id="menu1-method" class="collapse">
                                 <div class="accordion-body billing-method fix">
-                                    <form action="location-management/add/{{$location->idOwner}}" class="billing-form checkout-form" method="POST">
+                                    <form action="location-management/add/{{$location->idOwner}}" class="billing-form checkout-form" method="POST" enctype="multipart/form-data">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <div class="row">
                                               <div class="col-6 mb--20">
                                                 <label>Tên món ăn</label>
                                                 <input type="text" name="nameFood" >
                                             </div>
-                                            <div class="col-7 mb--20">
-                                                <label>Ảnh đại diện</label>
-                                                <input type="text" name="" >
-                                            </div>
+                                            <div class="col-8 mb--20">
+                                                <label>Ảnh minh họa</label>
+                                                <input type="file" name="avatar" class="billing-form checkout-form">
                                              <div class="col-5 mb--20"></div>
                                                <div class="col-3 mb--20">
                                                 <label>Đơn giá</label>

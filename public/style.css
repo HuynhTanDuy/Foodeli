@@ -725,7 +725,7 @@ background-color:white;
   background-position: center center; }
 
 .bg-image--18 {
-  background-image: url(images/bg/18.jpg);
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -5138,7 +5138,7 @@ width:900px;
 .ht__bradcaump__wrap {
   height: 412px; }
   .ht__bradcaump__wrap .bradcaump__inner .bradcaump-title {
-    color: #444444;
+    color: white;
     font-family: "Open Sans", sans-serif;
     font-size: 36px;
     font-weight: 700;
@@ -5174,7 +5174,7 @@ width:900px;
   color: #fff; }
 
 .ht__bradcaump__wrap .bradcaump__inner.brad__white .bradcaump-title {
-  color: #fff; }
+  color: white; }
 
 /*=======  Our MEnu Grid Area =======*/
 .grid__show__item p {
@@ -5506,7 +5506,7 @@ width:900px;
     font-size: 22px; }
 
   .single__food__list .food__list__inner .food__rating {
-    display: none; }
+    }
 
   .food__nav a {
     padding: 0 20px; } }
@@ -8353,6 +8353,11 @@ input[type="submit"] {
 /*======= About Us Styles =======*/
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
 
+.food__list__inner .food__list__details
+{
+  width:400px;
+  height:300px;
+}
   .choose__img--1 {
     bottom: 0;
     right: -154px; }

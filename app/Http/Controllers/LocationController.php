@@ -23,10 +23,10 @@ class LocationController extends Controller
             'name'=>'required',
             'address'=>'required',
             'idCategory'=>'required',
-            'avatar'=>'required',
+            
             'openTime'=>'required',
             'closeTime'=>'required',
-            'points'=>'required',
+           
             'shipCharge'=>'required',
 
             
@@ -35,10 +35,10 @@ class LocationController extends Controller
             'name.required'=>"Bạn chưa nhập tên quán ăn",
             'address.required'=>"Bạn chưa nhập địa chỉ",
             'idCategory.required'=>"Bạn chưa nhập thể loại",
-            'avatar.required'=>"Bạn chưa nhập ảnh đại diện",
+            
             'openTime.required'=>"Bạn chưa nhập giờ mở cửa",
             'closeTime.required'=>"Bạn chưa nhập giờ đóng cửa",
-            'points.required'=>"Bạn chưa nhập điểm",
+           
            
         ]);
         
@@ -46,11 +46,33 @@ class LocationController extends Controller
         $location->name=$request->name;
         $location->address=$request->address;
         $location->idCategory=$request->idCategory;
-        $location->avatar=$request->avatar;
+      
         $location->openTime=$request->openTime;
         $location->closeTime=$request->closeTime;
         $location->points=$request->points;
         $location->shipCharge=$request->shipCharge;
+         if($request->hasFile('avatar'))
+          {
+            $file=$request->file('avatar');
+            $name=$file->getClientOriginalName();
+            $avatar=str_random(4)."_". $name;
+             $duoi=$file->getClientOriginalExtension();
+          if($duoi !='jpg' && $duoi!='png' && $duoi!='jpeg')
+          {
+             return redirect('admin/location/edit/'.$id)->with('errors','Chỉ được thêm đuôi png, jpg, jpeg');
+          }
+       while(file_exists("images/food/".$avatar))
+       {
+
+        $avatarHinh=str_random(4)."_".$name;
+       }
+       $file->move("images/food/",$avatar);
+        unlink("images/food/".$location->avatar);
+       $location->avatar=$avatar;
+          }
+      else {
+        $location->avatar="";
+      }
 
        
         $location->save(); 
@@ -95,11 +117,33 @@ class LocationController extends Controller
         $location->name=$request->name;
         $location->address=$request->address;
         $location->idCategory=$request->idCategory;
-        $location->avatar=$request->avatar;
+       
         $location->openTime=$request->openTime;
         $location->closeTime=$request->closeTime;
         $location->points=$request->points;
         $location->shipCharge=$request->shipCharge;
+if($request->hasFile('avatar'))
+          {
+            $file=$request->file('avatar');
+            $name=$file->getClientOriginalName();
+            $avatar=str_random(4)."_". $name;
+             $duoi=$file->getClientOriginalExtension();
+          if($duoi !='jpg' && $duoi!='png' && $duoi!='jpeg')
+          {
+             return redirect('admin/location/add')->with('errors','Chỉ được thêm đuôi png, jpg, jpeg');
+          }
+       while(file_exists("images/food/".$avatar))
+       {
+
+        $avatarHinh=str_random(4)."_".$name;
+       }
+       $file->move("images/food/",$avatar);
+        
+       $location->avatar=$avatar;
+          }
+      else {
+        $location->avatar="";
+      }
 
        
         $location->save(); 

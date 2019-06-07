@@ -41,6 +41,8 @@
                                                  @elseif (Auth::user()->authority == 2)
                                                  <li><a href="location-management/{{Auth::id()}}">
                                                  Quản lí cửa hàng</a></li>
+                                                  <li><a href="orderList/{{Auth::id()}}">
+                                                 Order chờ xử lí</a></li>
                                                 @elseif (Auth::user()->authority == 0)
                                                 <li><a href="location-register/{{Auth::id()}}">Đăng kí mở cửa hàng</a></li>
                                                 @endif
