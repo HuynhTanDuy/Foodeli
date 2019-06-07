@@ -53,7 +53,7 @@ Route::post('reserve/{id}','PageController@Reserve');
 
 Route::get('cartbox','PageController@Cartbox')->middleware('pageLogin');
 
-Route::get('order/{id}','PageController@Order')->middleware('pageLogin');
+Route::get('order/{id}/{id1}','PageController@Order')->middleware('pageLogin');
 
 Route::get('deleteOrder/{id}','PageController@DeleteOrder')->middleware('pageLogin');
 

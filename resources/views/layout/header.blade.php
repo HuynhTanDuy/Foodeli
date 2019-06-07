@@ -66,7 +66,7 @@
                                 
                             </div>
                         </div>
-
+ @if(Auth::check())
                         <div class="col-lg-1 col-sm-2 col-md-2 order-2 order-lg-3">
                             <div class="header__right d-flex justify-content-end">
                                  
@@ -80,6 +80,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <!-- Mobile Menu -->
                     <div class="mobile-menu d-block d-lg-none"></div>

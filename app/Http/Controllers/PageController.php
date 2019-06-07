@@ -19,18 +19,25 @@ class PageController extends Controller
 {
   protected $user;
 	function __construct()
-	{
+	{ 
+
      $this->middleware(function ($request, $next) {
-             if (Auth::user()) $this->user = Auth::user(); 
-             else $this->user=User::find(1) ;
+             if (Auth::check()){ 
+              $this->user = Auth::user(); 
+           
              $cartbox=Cartbox::where('idUser',$this->user->id)->get();
              $cartbox_detail= Cartbox_detail::where('idCartBox',$cartbox[0]->id)->take(1)->get();
              //$user=User::find(Auth::user()->id);
              view()->share('cartbox_detail',$cartbox_detail);
              view()->share('cartbox',$cartbox[0]->getDetail);
              view()->share('user',$this->user);
+           }
+             else  { $cartbox=Cartbox::find(1);
+           view()->share('cartbox',$cartbox->getDetail);
+                }
              return $next($request);
         });
+
     $news= News::all();
 	  $comment = Comment::all();
     
@@ -230,14 +237,14 @@ class PageController extends Controller
     return redirect('location/'.$id);
    }
   
-	public function Order($id)
+	public function Order($id,$id1)
 	{
 		$order= Cartbox::where('idUser',Auth::user()->id)->get();
      $order_detail=new Cartbox_detail;
      $order_detail->idCartBox=$order[0]->id;
      $order_detail->idFood=$id;
      $order_detail->save();
-		 return redirect('home');
+		 return redirect('location/'.$id1);
 
 	}
 
