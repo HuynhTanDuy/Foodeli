@@ -34,7 +34,7 @@
                                 <th>Edit</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody> 
                             @foreach ($location as $loca)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$loca->id}}</td>
