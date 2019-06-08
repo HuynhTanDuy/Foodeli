@@ -13,4 +13,5 @@ class Cartbox_detail extends Model
     {
     	return $this->hasOne('App\Food','id','idFood');
     }
+    
 }

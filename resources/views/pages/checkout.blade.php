@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                     
-                                    <form action="placeOrder" method="POST">
+                                    <form action="placeOrder/{{$ide}}" method="POST">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <!-- Shipping Method -->
                                     <div class="single-accordion">
@@ -213,7 +213,7 @@
                             <div class="col-lg-6 col-12 mb-30">
                                
                                 <div class="order-details-wrapper">
-                                    <h2>your order</h2>
+                                    <h2>Đơn hàng của bạn</h2>
                                     <div class="order-details">
                                         <form action="#">
                                             <ul>

@@ -255,12 +255,13 @@ class PageController extends Controller
 		return redirect('home');
 	}
 
-	public function Checkout()
+	public function Checkout($id)
 	{
-		return view('pages.checkout');
+      
+		return view('pages.checkout',['ide'=>$id]);
 	}
 
-  public function PlaceOrder(Request $request)
+  public function PlaceOrder(Request $request,$id)
   {
      $this->validate($request, 
             [
@@ -287,26 +288,39 @@ class PageController extends Controller
                          
             ]);
 
+
+
     $order=new Order;
-    $order->idCartBox=1;
+    
+   $cartbox=Cartbox::where('idUser',Auth::user()->id)->get();
+    $cartboxDetail=Cartbox_detail::where('idCartBox',$cartbox[0]->id)->get();
     $order->address=$request->addressShip;
+     $order->idCartBox= $cartbox[0]->id;
+
     $order->phone_number=$request->phoneNumberShip;
     $order->payment_method=$request->paymentMethod;
+    $order->idUser= Auth::id();
+
     if ($request->paymentMethod==1) {
       
       $order->card_name=$request->card_name;
       $order->card_type=$request->card_type;
       $order->card_number=$request->card_number;
     }
+    $order->idOwner=$id;
+    $totalprice=0;
+    $subtotal=0;
+    foreach ($cartboxDetail as $c) {
+$subtotal=$subtotal + $c->getFood->price  ;}
+$totalprice= $subtotal +$cartboxDetail[0]->getFood->getLocation->shipCharge;
+
+     $order->totalprice=$totalprice;
+
     $order->save();
 
-    //Clear cartbox
-    $cartbox=Cartbox::where('idUser',Auth::user()->id)->get();
-    $cartboxDetail=Cartbox_detail::where('idCartBox',$cartbox[0]->id)->get();
-    foreach ($cartboxDetail as $c) {
-      $c->delete();
-     // $c->save();
-    }
+    
+    
+    
    
    return redirect('checkout_inform')->with('annoucement','Đặt hàng thành công');
 
@@ -527,6 +541,18 @@ if($rq->hasFile('avatar'))
     }
     public function getOrderList($id)
     {
-      return view('pages.order');
+       $order=Order::where('idOwner',$id)->get();
+      
+
+     
+      
+       
+         
+       // foreach( $cartbox1 as $c)
+       //$cartboxDetail=Cartbox_detail::where('idCartBox',$c->id)->get();
+   
+      
+    
+      return view('pages.order',['order'=>$order]);
     }
 }

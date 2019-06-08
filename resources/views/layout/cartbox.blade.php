@@ -31,7 +31,7 @@
 								   	$shippingCharge+=$c->getFood->getLocation->shipCharge;
 								   } 	
 							  ?>
-							@endforeach
+							
 
 								
 						</div>
@@ -44,8 +44,9 @@
 									</div>
 									<div class="cartbox__buttons">
 										
-										<a class="food__btn" href="checkout"><span>Checkout</span></a>
+										<a class="food__btn" href="checkout/{{$c->getFood->getLocation->idOwner}}"><span>Checkout</span></a>
 									</div>
 								</div>
 							</div>
+							@endforeach
 				</div><!-- //Cartbox -->

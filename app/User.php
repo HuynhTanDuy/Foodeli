@@ -39,6 +39,10 @@ class User extends Authenticatable
     protected $table="users";
     public $timestamps = false;
     
+    public function getLocation()
+    {
+        return $this->hasOne('App\Location','idOwner','id');
+    }
   /*  public function locationpending(){
         return $this->hasOne('App\LocationPending','idUser','id');
     }*/
