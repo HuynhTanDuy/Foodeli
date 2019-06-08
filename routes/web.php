@@ -57,11 +57,11 @@ Route::get('order/{id}/{id1}','PageController@Order')->middleware('pageLogin');
 
 Route::get('deleteOrder/{id}','PageController@DeleteOrder')->middleware('pageLogin');
 
-Route::get('checkout','PageController@Checkout')->middleware('pageLogin');
+Route::get('checkout/{id}','PageController@Checkout')->middleware('pageLogin');
 
 Route::get('checkout_inform','PageController@Checkout_inform')->middleware('pageLogin');
 
-Route::post('placeOrder','PageController@PlaceOrder')->middleware('pageLogin');
+Route::post('placeOrder/{id}','PageController@PlaceOrder')->middleware('pageLogin');
 
 
 

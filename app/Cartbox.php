@@ -11,7 +11,15 @@ class Cartbox extends Model
     public $timestamps = false;
     public function getDetail()
     {
-    	return $this->hasMany('App\Cartbox_detail','idCartbox');
+    	   return $this->hasMany('App\Cartbox_detail','idCartbox','id');
+    }
+    public function getDetail1()
+    {
+         return $this->hasOne('App\Cartbox_detail','idCartbox','id');
+    }
+    public function getUser()
+    {
+    	return $this->belongsTo('App\User','idUser','id');
     }
    
    
