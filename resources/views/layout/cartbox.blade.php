@@ -31,7 +31,7 @@
 								   	$shippingCharge+=$c->getFood->getLocation->shipCharge;
 								   } 	
 							  ?>
-							
+							@endforeach
 
 								
 						</div>
@@ -48,5 +48,5 @@
 									</div>
 								</div>
 							</div>
-							@endforeach
+							
 				</div><!-- //Cartbox -->

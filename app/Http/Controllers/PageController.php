@@ -26,7 +26,7 @@ class PageController extends Controller
               $this->user = Auth::user(); 
            
              $cartbox=Cartbox::where('idUser',$this->user->id)->get();
-             $cartbox_detail= Cartbox_detail::where('idCartBox',$cartbox[0]->id)->take(1)->get();
+             $cartbox_detail= Cartbox_detail::where('idCartBox',$cartbox[0]->id)->get();
              //$user=User::find(Auth::user()->id);
              view()->share('cartbox_detail',$cartbox_detail);
              view()->share('cartbox',$cartbox[0]->getDetail);
@@ -59,7 +59,6 @@ class PageController extends Controller
 	//	echo $category[0]->getLocation[0];
 
 		return view('pages.home',['category'=>$category,'location'=>$location,'slide'=>$slide,'location_reserve'=>$location_reserve]);
-
 		
 	}
 
