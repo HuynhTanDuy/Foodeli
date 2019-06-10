@@ -1,15 +1,25 @@
 @extends('layout.index')
 @section('content')
 @include('layout.slider')
-
+	
 <!-- Instruction Area -->
+
 <section class="fd__service__area bg-image--2 section-padding--xlg">
 				<div class="container">
 					<div class="service__wrapper bg--white">
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 								<div class="section__title service__align--left">
-						
+									@if (session('annoucement'))
+                            <div class="alert alert-success">
+                                {{session('annoucement')}}
+                            </div>
+                            @endif
+                             @if (session('errors'))
+                            <div class="alert alert-danger">
+                                {{session('errors')}}
+                            </div>
+                            @endif
 									<h2 class="title__line">Đặt thức ăn dễ dàng hơn với Foodeli</h2>
 								</div>
 							</div>

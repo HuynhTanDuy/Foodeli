@@ -59,6 +59,8 @@ Route::get('deleteOrder/{id}','PageController@DeleteOrder')->middleware('pageLog
 
 Route::get('checkout/{id}','PageController@Checkout')->middleware('pageLogin');
 
+Route::get('checkoutfail','PageController@CheckoutFail')->middleware('pageLogin');
+
 Route::get('checkout_inform','PageController@Checkout_inform')->middleware('pageLogin');
 
 Route::post('placeOrder/{id}','PageController@PlaceOrder')->middleware('pageLogin');

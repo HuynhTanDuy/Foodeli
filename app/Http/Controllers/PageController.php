@@ -554,4 +554,9 @@ if($rq->hasFile('avatar'))
     
       return view('pages.order',['order'=>$order]);
     }
+
+    public function CheckoutFail()
+    {
+      return redirect('home')->with('annoucement','Bạn chỉ có thể đặt món từ 1 cửa hàng duy nhất 1 lần. Vui lòng kiểm tra lại giỏ hàng');
+    }
 }

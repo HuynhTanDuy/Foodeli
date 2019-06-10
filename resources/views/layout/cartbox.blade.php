@@ -1,7 +1,7 @@
 <?php $subtotal=0;$shippingCharge=0;
-	  $numbers = array(0,0,0,0,0,0);
-	 
- ?>
+	  $numbers = array_fill(0, 100,0);
+?>
+
 <div class="cartbox-wrap">
 				<div class="cartbox text-right">
 					<button class="cartbox-close"><i class="zmdi zmdi-close"></i></button>
@@ -32,7 +32,14 @@
 								   } 	
 							  ?>
 							@endforeach
+							<?php $count=0;
+							      foreach ($numbers as $n) {
+							      		if ($n==1) {
+							      			$count++;
+							      		}
+							      	}
 
+							 ?>	
 								
 						</div>
 									<div class="cartbox__total">
@@ -44,7 +51,8 @@
 									</div>
 									<div class="cartbox__buttons">
 										
-										<a class="food__btn" href="checkout/{{$c->getFood->getLocation->idOwner}}"><span>Checkout</span></a>
+										<a class="food__btn" @if ($count==1) href= "checkout/{{$cartbox[0]->getFood->getLocation->idOwner}}"
+										 @else href= "checkoutfail" @endif><span>Checkout</span></a>
 									</div>
 								</div>
 							</div>
