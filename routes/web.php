@@ -35,7 +35,8 @@ Route::get('location-management/edit/{id}','PageController@getEditFood')->middle
 Route::post('location-management/edit/{id}','PageController@postEditFood')->middleware('pageLogin');
 
 Route::get('orderList/{id}','PageController@getOrderList');
-
+Route::get('finishOrder/{id1}/{id2}','PageController@finishOrder');
+Route::get('cancelOrder/{id1}/{id2}','PageController@cancelOrder');
 
 
 Route::get('header',function(){

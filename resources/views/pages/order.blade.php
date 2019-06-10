@@ -53,52 +53,51 @@
 										<div class="row">
 											
 											<div class="col-12 mb--20">
-                                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                                    <thead>
-                                                        <tr align="center">
-                                                            
-                                                            <th>Người đặt hàng</th>
-                                                            <th>Món ăn</th>
-                                                            <th>Địa chỉ</th>
-                                                            <th>Số điện thoại</th>
-                                                            <th>Tổng giá</th>
-                                                            <th>Hoàn thành</th>
-                                                            <th>Hủy bỏ</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                            @foreach($order as $od)
-                                                           
-                                                          
-                                                        <tr class="odd gradeX" align="center">
-                                                        <td> {{$od->getUser->name}}  </td>
- 
-                                                           <td> @foreach($order as $od) {{$od->getCartbox->getDetail1->getFood->name}}<br> @endforeach</td>
-                                                         <td>{{$od->address}}</td>
-                                                         <td>{{$od->getUser->phoen_number}}</td>
-                                                             <td>{{$od->totalprice}}</td>
-                                                        
-                                                  
-                                                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="">Hoàn thành</a></td>
-                                                              <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="">Hủy đơn hàng</a></td>
-                                                        </tr>
-                                                         @endforeach 
-                                                    </tbody>
-                                                </table>
-                                            </div>
+												<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+													<thead>
+														<tr align="center">
+															
+															<th>Người đặt hàng</th>
+															<th>Món ăn</th>
+															<th>Địa chỉ</th>
+															<th>Số điện thoại</th>
+															<th>Tổng giá</th>
+															<th>Hoàn thành</th>
+															<th>Hủy bỏ</th>
+														</tr>
+													</thead>
+													<tbody>
+														@foreach($order as $od)
+														
+														
+														<tr class="odd gradeX" align="center">
+															<td> {{$od->getUser->name}}  </td>
+															
+															<td> @foreach($cartbox_detail as $cd)
+																{{$cd->getFood->name}} <br> @endforeach </td>
+															<td>{{$od->address}}</td>
+															<td>{{$od->getUser->phone_number}}</td>
+															<td>{{$od->totalprice}}</td>
+															
+															
+															<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="finishOrder/{{$od->getCartbox->id}}/{{$od->id}}">Hoàn thành</a></td>
+															<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="cancelOrder/{{$od->getCartbox->id}}/{{$od->id}}">Hủy đơn hàng</a></td>
+														</tr>
+														@endforeach
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									
+									
+								</div>
 							</div>
 						</div>
 						
-						
 					</div>
 				</div>
-			</div>
-			
-		</div>
-	</div>
-	
-	
-</section>
-
-
-@endsection
+				
+				
+			</section>
+			@endsection

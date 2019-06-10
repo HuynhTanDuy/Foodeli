@@ -123,7 +123,7 @@
                                               
                                                  <ul class="payment-method-list" >
                                                     <li class="active"><input type="radio" checked="true" name="paymentMethod" value="0">Thanh toán khi nhận hàng </li>
-                                                    <li  class="payment-form-toggle"><input  type="radio" name="paymentMethod"  value="1">Thẻ tín dụng </li>
+                                                    <!-- <li  class="payment-form-toggle"><input  type="radio" name="paymentMethod"  value="1">Thẻ tín dụng </li> -->
                                                 </ul> 
 
                                                
