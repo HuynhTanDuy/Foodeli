@@ -24,7 +24,7 @@
                                 <th>Họ và tên</th>
                                 <th>Email</th>
                                 <th>Số điện thoại</th>
-                                <th>Password</th>
+                                <th>Địa chỉ></th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -38,7 +38,8 @@
                                 <td>
                                    {{$us->phone_number}}
                                 </td>
-                                <td>{{$us->password}}</td>
+                                <td>{{$us->address}}</td>
+                        
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/user/delete/{{$us->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/user/edit/{{$us->id}}">Edit</a></td>
                             </tr>

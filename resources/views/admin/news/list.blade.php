@@ -25,7 +25,7 @@
                                 <th>Ảnh</th>
                                 <th>Highlight</th>
                                 <th>Tóm tắt</th>
-                                <th>Nội dung</th>
+                               
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -40,7 +40,7 @@
                                    {{$n->highlight}}
                                 </td>
                                 <td>{{$n->summary}}</td>
-                                <td>{{$n->content}}</td>
+                               
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/news/delete/{{$n->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/news/edit/{{$n->id}}">Edit</a></td>
                             </tr>

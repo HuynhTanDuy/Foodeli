@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Nội dung</label>
-                                <input  class="form-control" name="content" value="{{$news->content}}" />
+                                <textarea class="form-control" name="content" placeholder="{{$news->content}}"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Ảnh</label>

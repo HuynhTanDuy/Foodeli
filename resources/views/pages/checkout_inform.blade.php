@@ -38,7 +38,7 @@
             <div class="checkout-section">
                 <div class="container">
                     <div class="row">
-                       <?php $subtotal=0;$shippingCharge=0;$numbers = array(0,0,0,0,0,0);?>
+                       <?php $subtotal=0;$shippingCharge=0;;$numbers = array_fill(0, 100,0);?>
                             <!-- Order Details -->
                             <div class="col-lg-12 col-12 mb-30">
                                
