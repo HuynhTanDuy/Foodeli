@@ -543,20 +543,47 @@ if($rq->hasFile('avatar'))
        $order=Order::where('idOwner',$id)->get();
       
 
-     
+    
       
        
          
-       // foreach( $cartbox1 as $c)
-       //$cartboxDetail=Cartbox_detail::where('idCartBox',$c->id)->get();
-   
+       foreach( $order as $od){
+       $cartbox1=Cartbox::where('id',$od->idCartbox)->get();
+            
+     foreach( $cartbox1 as $cb)
+      $cartbox_detail=Cartbox_detail::where('idCartbox',$cb->id)->get();
+    //echo $cartbox_detail;
+
+}
       
     
-      return view('pages.order',['order'=>$order]);
+      return view('pages.order',['order'=>$order,'cartbox_detail'=>$cartbox_detail]);
     }
 
     public function CheckoutFail()
     {
       return redirect('home')->with('annoucement','Bạn chỉ có thể đặt món từ 1 cửa hàng duy nhất 1 lần. Vui lòng kiểm tra lại giỏ hàng');
+    }
+    public function finishOrder($id1, $id2)
+    {
+       $order=Order::where('id',$id2)->first();
+       $cartbox_detail=Cartbox_detail::where('idCartbox',$order->getCartbox->id)->get();
+
+      foreach($cartbox_detail as $cb)
+      { $cb->delete();}
+      //echo $cartbox_detail;
+       $order->delete();
+      return redirect('orderList/'.Auth::id())->with('annoucement','Hoàn thành Order');
+    }
+    public function cancelOrder($id1, $id2)
+    {
+       $order=Order::where('id',$id2)->first();
+       $cartbox_detail=Cartbox_detail::where('idCartbox',$order->getCartbox->id)->get();
+
+      foreach($cartbox_detail as $cb)
+      { $cb->delete();}
+      //echo $cartbox_detail;
+       $order->delete();
+      return redirect('orderList/'.Auth::id())->with('annoucement','Hủy Order thành công');
     }
 }
